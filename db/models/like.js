@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Like.associate = function(models) {
     // associations can be defined here
-    Like.belongsToMany(models.User, { foreignKey: 'userId' });
-    Like.belongsToMany(models.Story, { foreignKey: 'storyId' });
+    Like.belongsTo(models.User, { foreignKey: 'userId' });
+    Like.belongsTo(models.Story, { foreignKey: 'storyId' });
   };
   return Like;
 };

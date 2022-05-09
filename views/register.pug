@@ -1,0 +1,15 @@
+extends layout.pug 
+block content 
+    form(action='/users/register' method='POST')
+        input(name='_csrf' type='hidden' value=csrfToken)
+        label Full name
+        input(type='text' name='fullName' required value=user.fullName)
+        label Username
+        input(type='text' name='username' required value=user.username)
+        label Email
+        input(type='email' name='email' required value=user.email)
+        label Password
+        input(type='password' name='password' required value=user.password)
+        label Confirm Password
+        input(type='password' name='confirmPassword' required)
+        button(type='submit') Submit
