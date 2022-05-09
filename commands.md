@@ -63,13 +63,13 @@ Update your working branch by switching to that branch and using 'git merge main
 
 ## To generate the models use:
 
-- npx dotenv sequelize model:generate --name User --attributes fullName:string,username:string,email:string,hashedPassword:string
+- npx sequelize-cli model:generate --name User --attributes fullName:string,username:string,email:string,hashedPassword:string
 
-- npx dotenv sequelize model:generate --name Story --attributes title:string,content:text,userId:integer
+- npx sequelize-cli model:generate --name Story --attributes title:string,content:text,userId:integer
 
-- npx dotenv sequelize model:generate --name Comment --attributes content:string,userId:integer,storyId:integer
+- npx sequelize-cli model:generate --name Comment --attributes content:string,userId:integer,storyId:integer
 
-- npx dotenv sequelize model:generate --name Like --attributes userId:integer,storyId:integer
+- npx sequelize-cli model:generate --name Like --attributes userId:integer,storyId:integer
 
 
 
