@@ -8,10 +8,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     // associations can be defined here
-    User.hasMany(models.Story, { foreignKey: 'userId' });
     User.hasMany(models.Comment, { foreignKey: 'userId' });
     User.hasMany(models.Like, { foreignKey: 'userId' });
-    //Double check association with Rawaha for Likes
+    const columnMapping = {
+      through: 'Like',
+      otherKey: 'storyId',
+      foreignKey: 'userId'
+     }
+     User.belongsToMany(models.Story, columnMapping);
   };
   return User;
 };
