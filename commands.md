@@ -49,7 +49,7 @@ Update your working branch by switching to that branch and using 'git merge main
       "host": "127.0.0.1",
       "dialect": "postgres",
       "seederStorage": "sequelize"
-    } 
+    }
 }
 ```
 
@@ -63,13 +63,19 @@ Update your working branch by switching to that branch and using 'git merge main
 
 ## To generate the models use:
 
-- npx sequelize model:generate --name HairColor --attributes color:string
-- npx sequelize model:generate --name Person --attributes firstName:string,lastName:string,age:
-  integer,biography:text,hairColorId: integer
+- npx dotenv sequelize model:generate --name User --attributes fullName:string,username:string,email:string,hashedPassword:string
+
+- npx dotenv sequelize model:generate --name Story --attributes title:string,content:text,userId:integer
+
+- npx dotenv sequelize model:generate --name Comment --attributes content:string,userId:integer,storyId:integer
+
+- npx dotenv sequelize model:generate --name Like --attributes userId:integer,storyId:integer
+
+
 
 ## To generate the seed files use:
 
-- npx sequelize seed:generate --name hairColorSeed
+- npx dotenv sequelize seed:generate --name
 
 ## Sequelize commands for *initial creation*:
 
