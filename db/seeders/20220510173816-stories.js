@@ -48,7 +48,7 @@ module.exports = {
                 title: 'The Prestige',
                 content: 'A leap back to his stellar Memento form, Christopher Nolan\'s fifth feature is an incisive work about the nature of creative obsession. ' +
                     'The film bursts forth fully formed, richly detailed, and with a keen eye toward Nolan\'s usual brushstrokes',
-                imgUrl: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBIVEhgSEhIYGBgVGBgYEhgSGBgSGBgaGBgZGRoYGBgcIS4lHB4rHxgYJjgmKy8xNTU1GiQ7QD00Py40NTQBDAwMEA8QGhISGDQhISExNDE0NDE0NDQ0NDQ0NDQxNDQ0MTExNDQ0NDQ0NDE0NDQ0NjE0NDQ0MTQxNDQ0ND80NP/AABEIAREAuAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAQIDBAUGBwj/xAA8EAACAgEDAQYFAgMFCAMAAAABAgARAwQSITEFEyJBUWEGMnGBkaHBFEKxByNSctEVJHOSsuHw8TM1U//EABgBAAMBAQAAAAAAAAAAAAAAAAABAgME/8QAHxEBAQACAgIDAQAAAAAAAAAAAAECESExA0ESMlEi/9oADAMBAAIRAxEAPwDxuEIQMQlzTDB4e8Ljl9+zb02+DaCOu7r7R1aauuQnu/LaAMnPt8nT394BRhLeDuKHeFwaa9u0i7XbQI4Fbr+0ULp+8W2fZsG4it27byBxVbv0gFOEv6ddNxvOQeJd23bW3aN1cdd117SIjDt4LFtrX0ADbvD5fLt6/tAKsJe1A01N3ZyE2uzftqq8W6h1vpG5Rg2+HeW2LV0AHs774+WqqAU4S1jXCVbcWVqXZVMpO7xEigQNvQesmUaXfz3uzc3I2httDZxVXe6/pAM+EuqNPt5Z77s9Atd5Yof5a49bFwxLp9g3M4ba+6q27hXd1xdHm/tAKUJfVdNuW2ybaG6gu4Ha26uOabb9r+shzd1Q2biSvO4gANuPtyNu3059YBWhLqpp6Fu90m6gKBLHfXqAtV7yP+67wg7im/wkEBtm7mwRy239YBWhNBF0tizl27m3Abd23b4SOKvd19o3bptp8WTdsFcLXeW1g8fLwvvyYBRhLzjT0SpyXv8ACCV5SvM1w272+0owAhCEASEWKqkwBIS9h7LyvyFls9huo',
+                imgUrl: 'https://worleygig.com/wp-content/uploads/2006/10/the_prestige-e1445513409117.jpg',
                 userId: 1,
                 createdAt: new Date(),
                 updatedAt: new Date()
