@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator');
 
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models')
-const { loginUser, logoutUser, requireAuth } = require('../auth')
+const { loginUser, logoutUser, requireAuth } = require('../auth');
 
 const router = express.Router();
 
@@ -110,7 +110,6 @@ const loginValidators = [
 
 router.post('/log-in', csrfProtection, loginValidators,
   asyncHandler(async (req, res) => {
-
     const {
       email,
       password,
@@ -152,5 +151,8 @@ router.post('/logout', (req, res) => {
   logoutUser(req, res);
   res.redirect('/');
 });
+
+
+
 
 module.exports = router;
