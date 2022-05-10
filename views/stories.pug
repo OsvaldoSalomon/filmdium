@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+    each story in stories
+        div(id=`story-container-${story.id}`)
+            h2(id=`story-title-${story.id}`)=story.title
+            p(id=`story-content-${story.id}`)=story.content
