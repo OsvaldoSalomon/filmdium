@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+    form(action='/users/log-in' method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        label Email
+        input(type="email" name="email" required)
+        label Password
+        input(type="password" name="password" required)
+        button(type="submit") Log-In
