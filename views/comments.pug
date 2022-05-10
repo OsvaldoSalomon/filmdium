@@ -4,9 +4,10 @@ block content
     form(action='/comments' method='post')
         input(type="hidden" name="_csrf" value=csrfToken)
         label Comments 
-        input(type="text")
+        input(type="text" name='content')
         button(type='button') Cancel
         button(type='submit') Create
     each comment in comments
         div(id=`comments-container-${comment.id}`)
+            p(id=`comments-author-${comment.id}`)=comment.userId.fullName
             p(id=`comments-content-${comment.id}`)=comment.content
