@@ -5,21 +5,15 @@ const db = require('../db/models')
 const router = express.Router();
 
 
-router.get("/", asyncHandler(async (req, res) => {
+router.get("/", csrfProtection, asyncHandler(async (req, res) => {
     const comments = await db.Comment.findAll();
     res.render("comments", { comments })
 }));
-
-// router.get("/:id", asyncHandler(async (req, res) => {
-//     const comment = await db.Comment.findByPk(req.params.id)
-//     res.render("comment", {comment})
-// }))
 
 router.post("/", csrfProtection, asyncHandler(async (req, res) => {
     const {
         content
     } = req.body;
-
     db.Comment.create({
         content
     })
