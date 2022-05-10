@@ -11,9 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         const columnMapping = {
             through: 'Like',
             otherKey: 'userId',
-            foreignKey: 'storyId'
+            foreignKey: 'storyId',
+            as: 'likes'
         }
         Story.belongsToMany(models.User, columnMapping);
+        Story.belongsTo(models.User, { foreignKey: 'userId', as: 'author' })
         Story.hasMany(models.Comment, { foreignKey: 'storyId' });
         Story.hasMany(models.Like, { foreignKey: 'storyId' });
     };
