@@ -17,4 +17,10 @@ html
               a(href='/users/log-in') Login
             div
               a(href='/users/register') Register
+            div 
+              form(action='/users/log-in' method="post")
+                input(type="hidden" name="_csrf" value=csrfToken)
+                input(type="hidden" name="email" value='demo@demo.com')
+                input(type="hidden" name="password" value='password123')
+                button(type="submit" id='demoButton') Demo User
     block content
