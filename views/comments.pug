@@ -1,0 +1,11 @@
+extends layout.pug 
+
+block content 
+    form(action='/comments' method='post')
+        label Comments 
+        input(type="text")
+        button(type='button') Cancel
+        button(type='submit') Create
+    each comment in comments
+        div(id=`comments-container-${comment.id}`)
+            p(id=`comments-content-${comment.id}`)=comment.content
