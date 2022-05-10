@@ -8,7 +8,7 @@ module.exports = {
                 fullName: 'Demo User',
                 username: 'demo',
                 email: 'demo@demo.com',
-                hashedPassword: 'password123',
+                hashedPassword: '$2a$10$/6UnBoYo3ZPFb3uXgiUVg.Cmkq6yYD9Papl0OSa6kG1.fUnw4gVX2',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -16,7 +16,7 @@ module.exports = {
                 fullName: 'Jorge Denis',
                 username: 'jorgedenis',
                 email: 'jorge@denis.com',
-                hashedPassword: 'password123',
+                hashedPassword: '$2a$10$/6UnBoYo3ZPFb3uXgiUVg.Cmkq6yYD9Papl0OSa6kG1.fUnw4gVX2',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -24,7 +24,7 @@ module.exports = {
                 fullName: 'Justin Yi',
                 username: 'justinyi',
                 email: 'justin@yi.com',
-                hashedPassword: 'password123',
+                hashedPassword: '$2a$10$/6UnBoYo3ZPFb3uXgiUVg.Cmkq6yYD9Papl0OSa6kG1.fUnw4gVX2',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -32,7 +32,7 @@ module.exports = {
                 fullName: 'Jacob Thompson',
                 username: 'jacobthompson',
                 email: 'jacob@thompson.com',
-                hashedPassword: 'password123',
+                hashedPassword: '$2a$10$/6UnBoYo3ZPFb3uXgiUVg.Cmkq6yYD9Papl0OSa6kG1.fUnw4gVX2',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -40,7 +40,7 @@ module.exports = {
                 fullName: 'Osvaldo Salomon',
                 username: 'osvaldosalomon',
                 email: 'osvaldo@salomon.com',
-                hashedPassword: 'password123',
+                hashedPassword: '$2a$10$/6UnBoYo3ZPFb3uXgiUVg.Cmkq6yYD9Papl0OSa6kG1.fUnw4gVX2',
                 createdAt: new Date(),
                 updatedAt: new Date()
             }
