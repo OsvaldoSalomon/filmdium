@@ -74,8 +74,6 @@ router.post('/register', csrfProtection, userValidators,
     });
     const validatorErrors = validationResult(req);
 
-    console.log(user)
-
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
@@ -112,34 +110,27 @@ const loginValidators = [
 
 router.post('/log-in', csrfProtection, loginValidators,
   asyncHandler(async (req, res) => {
-    console.log("IN THE LOGIN ROUTE")
+
     const {
       email,
       password,
     } = req.body;
-    console.log(email, password)
 
     let errors = [];
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-      console.log('Everything is okay')
-      const user = await db.User.findOne({ where: { email } });
 
-      console.log(user)
+      const user = await db.User.findOne({ where: { email } });
 
       if (user !== null) {
 
-        console.log('--------------------------- Found User ------------------------------------')
-
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
 
-        console.log('--------------------------- passwordMatch ------------------------------------', passwordMatch)
-
         if (passwordMatch) {
-          console.log('--------------------------- Before login User passwordMatch ------------------------------------', passwordMatch)
+
           loginUser(req, res, user)
-          console.log('--------------------------- After login User passwordMatch ------------------------------------')
+
           return res.redirect('/');
         }
       }
