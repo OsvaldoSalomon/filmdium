@@ -12,7 +12,16 @@ router.post("/", csrfProtection, asyncHandler(async (req, res) => {
         userId,
         storyId
     })
+    res.redirect(`/stories/${storyId}`)
+}))
 
+router.delete("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
+    const { storyId } = req.body;
+    const likeId = parseInt(req.params.id, 10);
+
+    const like = await db.Like.findByPk(likeId)
+
+    await like.destroy();
     res.redirect(`/stories/${storyId}`)
 }))
 

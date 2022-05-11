@@ -10,7 +10,17 @@ block content
         img(src=`${story.imgUrl}`)
         p=story.content
     div
-        button(id=`likes-count` name="likes" value=likes)=likes
+    form(action=`/likes` method='post')
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name='storyId' value=storyId)
+        label Likes
+        p=likes
+        button(type="submit") Like this story
+    div
+    form(action=`/likes/:id` method='post')
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name='storyId' value=storyId)
+        button(type="submit") Remove like
     div
     form(action=`/comments` method='post')
         input(type="hidden" name="_csrf" value=csrfToken)
