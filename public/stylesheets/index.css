@@ -1,3 +1,142 @@
-h1 {
-    color: #555555;
+.main-page {
+    max-width: 60em;
+    margin: auto;
 }
+
+#main-img {
+    display: block;
+    width: 60em;
+    height: 35em;
+    border-radius: .5em;
+    margin: 2em auto;
+}
+
+.section1 {
+    margin-bottom: 1em;
+}
+
+#heading {
+    font-weight: bolder;
+    font-size: 4em;
+}
+
+#description {
+    color: #9095A1;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#start-reading-btn {
+    text-decoration: none;
+    background-color: #FFBB00;
+    color: white;
+    padding: 5px 14px 5px 14px;
+    border: 1px solid #FFBB00;
+    border-radius: .5em;
+    width: 4em;
+}
+
+#see-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#see-more-link {
+    text-decoration: none;
+    background-color: #FFBB00;
+    color: black;
+    padding: 5px 14px 5px 14px;
+    border: 1px solid #FFBB00;
+    border-radius: .5em;
+    width: 12em;
+    font-size: .7em;
+    margin: 2em auto;
+    /*display: flex;*/
+    /*justify-content: center;*/
+}
+
+#trending-heading {
+    margin-bottom: 1em;
+}
+
+.card {
+    border: 1px solid #BDC1CA;
+    border-radius: .5em;
+    width: 15em;
+    margin: .7em;
+    padding-left: 1em;
+}
+
+.card-author {
+    margin-bottom: .1em;
+    color: #008cff;
+    font-size: .8em;
+}
+
+.card-title {
+    font-size: 1.3em;
+    margin-top: .3em;
+    margin-bottom: .3em;
+}
+
+.card-date {
+    font-size: .8em;
+    color: #9095A1;
+    margin-top: .3em;
+}
+
+
+.story-rating {
+    display: flex;
+}
+
+.stories-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "story1 story2 story3"
+    "story4 story5 story6"
+    "story7 story8 story9";
+    align-items: center;
+    justify-items: center;
+}
+
+#story1 {
+    grid-area: story1;
+}
+
+#story2 {
+    grid-area: story2;
+}
+
+#story3 {
+    grid-area: story3;
+}
+
+#story4 {
+    grid-area: story4;
+}
+
+#story5 {
+    grid-area: story5;
+}
+
+#story6 {
+    grid-area: story6;
+}
+
+#story7 {
+    grid-area: story7;
+}
+
+#story8 {
+    grid-area: story8;
+}
+
+#story9 {
+    grid-area: story9;
+}
+
+
