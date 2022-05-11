@@ -18,7 +18,9 @@ router.get("/", asyncHandler(async (req, res) => {
 }));
 
 
+
 router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
+
     const story = await db.Story.findByPk(req.params.id, {
         include: [{
             model: db.User,
@@ -30,23 +32,12 @@ router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
     })
     const storyId = req.params.id
     const comments = story.Comments
-    const author = await db.User.findByPk(story.userId);
     res.render("story", { story, storyId, comments, csrfToken: req.csrfToken() })
 }))
 
-// .get("/", csrfProtection, asyncHandler(async (req, res) => {
-//     const storyId = req.originalUrl.split('/')
-//     const story = await db.Story.findByPk(storyId[2], {
-//         include: db.Comment
-//     });
-//     const comments = story.Comments
-//     res.render("comments", { comments, csrfToken: req.csrfToken() })
-// }));
 
 router.get('/new', csrfProtection, asyncHandler(async (req, res) => {
-    console.log("-------------------------------- hello? ---------------------------------------------")
     const stories = await db.Story.findAll()
-    console.log("-------------------------------- test 2? ---------------------------------------------")
     res.render('storyForm', {
         stories,
         csrfToken: req.csrfToken(),
@@ -69,7 +60,9 @@ const storyValidators = [
 
 router.post("/new", csrfProtection, storyValidators, asyncHandler(async (req, res) => {
     const { title, content, imgUrl } = req.body;
+
     const { userId } = req.session.auth
+
 
     const story = db.Story.build({ title, content, imgUrl, userId });
 
@@ -82,11 +75,46 @@ router.post("/new", csrfProtection, storyValidators, asyncHandler(async (req, re
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render("storyForm", { story, csrfToken: req.csrfToken(), errors })
     }
+
 }))
 
 
+router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    res.render('storyEdit', { story, csrfToken: req.csrfToken() })
+}))
+
+router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const storyToUpdate = await db.Story.findByPk(storyId);
 
 
+    const { title, content, imgUrl, userId } = req.body;
 
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await storyToUpdate.update({ title, content, imgUrl, userId });
+        res.redirect(`/stories/${storyId}`);
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('storyEdit', { story, csrfToken: req.csrfToken(), errors });
+    }
+}))
+
+router.get('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+
+    res.render("storyDelete", {story, csrfToken: req. csrfToken()})
+}))
+
+router.post('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    await story.destroy();
+    res.redirect('/stories');
+}))
 
 module.exports = router;
