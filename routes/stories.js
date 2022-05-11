@@ -1,19 +1,9 @@
 const express = require('express');
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models')
+const { check, validationResult } = require("express-validator")
 
 const router = express.Router();
-
-router.get('/new', csrfProtection, asyncHandler( async(req, res) => {
-    console.log("-------------------------------- is this hitting? --------------------------------------")
-    const stories = await db.Story.findAll()
-    console.log(stories, "--------------------------------- hwo abotu now? ------------------------------------")
-    res.render('storyForm', {
-        stories,
-        csrfToken: req.csrfToken(),
-    });
-  }));
-
 
 router.get("/", asyncHandler(async (req, res) => {
     console.log('In get stories /')
@@ -23,12 +13,12 @@ router.get("/", asyncHandler(async (req, res) => {
             as: 'author'
         }
     });
-    console.log("--------- Stories -----------", stories[0].author);
-
     res.render("stories", { stories })
 }));
 
-router.get("/:id", asyncHandler(async (req, res) => {
+
+
+router.get("/:id(\\d+)", asyncHandler(async (req, res) => {
     const story = await db.Story.findByPk(req.params.id, {
         include: {
             model: db.User,
@@ -39,28 +29,50 @@ router.get("/:id", asyncHandler(async (req, res) => {
     res.render("story", { story })
 }))
 
-// router.get("/new", csrfProtection, asyncHandler(async (req, res) => {
-//     console.log("----------- before storuy.build------------")
-//     const story = db.Story.build()
-//     console.log("----------- story ------------")
+router.get('/new', csrfProtection, asyncHandler(async (req, res) => {
+    console.log("-------------------------------- hello? ---------------------------------------------")
+    const stories = await db.Story.findAll()
+    console.log("-------------------------------- test 2? ---------------------------------------------")
+    res.render('storyForm', {
+        stories,
+        csrfToken: req.csrfToken(),
+    });
+  }));
 
-//     res.render("storyForm", {story, csrfToken: req.csrfToken()})
+  const storyValidators = [
+    check('title')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for the title'),
 
-// }))
-router.use((req, res, next) => {
-    console.log("--------- YOOOOOOOOOOOOOOOO THIS IS A TEST READ THIS MAN PLAEASD WORK ")
-    next()
-})
+    check("content")
+    .exists({ checkFalsy: true})
+    .withMessage('Please provide a value for the content'),
+
+    check('imgUrl')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for Image Url')
+]
+
+  router.post("/new", csrfProtection, storyValidators, asyncHandler(async (req, res) => {
+    const {title, content, imgUrl} = req.body;
+    const { userId } = req.session.auth
+
+    const story = db.Story.build({ title, content, imgUrl, userId});
+
+    const validatorErrors = validationResult(req)
+
+    if(validatorErrors.isEmpty()) {
+        await story.save();
+        res.redirect("/stories")
+    } else {
+        const errors = validatorErrors.array().map((error) =>error.msg);
+        res.render("storyForm", {story, csrfToken: req.csrfToken(), errors })
+    }
+  }))
 
 
-// router.post("/", csrfProtection, asyncHandler(async (req, res) => {
-//     const {title, content, imgUrl, userId} = req.body;
 
 
-//     res.render("storyForm", {})
-
-
-// }))
 
 
 module.exports = router;
