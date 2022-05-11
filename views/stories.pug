@@ -1,5 +1,9 @@
 extends layout.pug
 
+append head
+    link(rel="stylesheet" href="/stylesheets/stories.css")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
+
 block content
     each story in stories
         div(id=`story-container-${story.id}`)
