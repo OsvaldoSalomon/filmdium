@@ -1,9 +1,11 @@
 const express = require('express');
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models')
+const commentsRoutes = require('./comments')
 
 const router = express.Router();
 
+router.use('/:id/comments', commentsRoutes)
 
 router.get("/", asyncHandler(async (req, res) => {
     console.log('In get stories /')

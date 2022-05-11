@@ -1,7 +1,7 @@
 extends layout.pug 
 
 block content 
-    form(action='/comments' method='post')
+    form(action=`/stories/${storyId}/comments` method='post')
         input(type="hidden" name="_csrf" value=csrfToken)
         label Comments 
         input(type="text" name='content')
