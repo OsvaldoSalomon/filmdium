@@ -15,7 +15,6 @@ const router = express.Router();
 router.post("/", csrfProtection, asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const { content, storyId } = req.body;
-    // console.log(content, storyId, userId, '------------------------------------------------------------------------------------------------------------------------')
     await db.Comment.create({
         userId,
         content,
@@ -24,6 +23,20 @@ router.post("/", csrfProtection, asyncHandler(async (req, res) => {
     res.redirect(`/stories/${storyId}`)
 }))
 
+router.put("/", csrfProtection, asyncHandler(async (req, res) => {
+    const { content, storyId } = req.body;
+    await db.Comment.update({
+        userId,
+        content,
+        storyId
+    })
+    res.redirect(`/stories/${storyId}`)
+}))
 
+router.delete("/", csrfProtection, asyncHandler(async (req, res) => {
+    const { content, storyId } = req.body;
+    console.log(req.body)
+    res.redirect(`/stories/${storyId}`)
+}))
 
 module.exports = router;
