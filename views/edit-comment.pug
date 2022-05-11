@@ -1,0 +1,10 @@
+extends layout.pug
+include utils.pug
+block content
+    +validationErrorSummary(errors)
+    form(action=`/comments/${commentId}` method='POST')
+    input(name='_csrf' type='hidden' value=csrfToken)
+    label Comments
+        input(type="text" name='content' placeholder='Add a Comment..')
+        button(type='reset') Cancel
+        button(type='submit') Create

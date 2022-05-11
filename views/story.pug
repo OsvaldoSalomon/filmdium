@@ -16,13 +16,13 @@ block content
         input(type="hidden" name="_csrf" value=csrfToken)
         input(type="hidden" name='storyId' value=storyId)
         label Comments
-        input(type="text" name='content' placeholder='Add a Comment..')
+        input(type="text" name='content' placeholder='Add a Comment..')        
         button(type='reset') Cancel
         button(type='submit') Create
     each comment in story.Comments
         div(id=`comments-container-${comment.id}`)
-            button(type='button') Edit
-            button(type='button') Delete
             p=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
             p(id=`comments-author-${comment.id}`)=comment.User.fullName
             p(id=`comments-content-${comment.id}`)=comment.content
+            a(href=`/comments/${comment.id}`) Edit
+            a(href=`/comments/${comment.id}`) Delete

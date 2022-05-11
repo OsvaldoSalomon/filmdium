@@ -1,16 +1,8 @@
 const express = require('express');
 const { csrfProtection, asyncHandler } = require('./utils');
-const db = require('../db/models')
+const db = require('../db/models');
 
 const router = express.Router();
-
-
-
-
-// router.use((req, res, next) => {
-//     console.log('THIS IS REQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')
-//     next()
-// })
 
 router.post("/", csrfProtection, asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
@@ -21,6 +13,17 @@ router.post("/", csrfProtection, asyncHandler(async (req, res) => {
         storyId
     })
     res.redirect(`/stories/${storyId}`)
+}))
+
+// router.use((req, res, next) => {
+//     console.log('THIS IS REQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')
+//     next()
+// })
+
+router.get("/comments/:id", csrfProtection, asyncHandler(async (req, res) => {
+    const commentId = req.params.id
+    console.log(commentId, storyId)
+    res.render(`edit-comment`, { csrfToken: req.csrfToken(), commentId })
 }))
 
 router.put("/", csrfProtection, asyncHandler(async (req, res) => {
@@ -36,6 +39,7 @@ router.put("/", csrfProtection, asyncHandler(async (req, res) => {
 router.delete("/", csrfProtection, asyncHandler(async (req, res) => {
     const { content, storyId } = req.body;
     console.log(req.body)
+    const comment = await db.Comment.findByPk()
     res.redirect(`/stories/${storyId}`)
 }))
 
