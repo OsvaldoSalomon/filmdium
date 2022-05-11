@@ -92,4 +92,18 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
     }
 }))
 
+router.get('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+
+    res.render("storyDelete", {story, csrfToken: req. csrfToken()})
+}))
+
+router.post('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    await story.destroy();
+    res.redirect('/stories');
+}))
+
 module.exports = router;
