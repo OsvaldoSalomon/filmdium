@@ -6,6 +6,7 @@ block content
         h2=story.author.fullName
         h3=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
         a(href=`/stories/${story.id}/edit`) Edit
+        a(href=`/stories/${story.id}/delete`) Delete
         img(src=`${story.imgUrl}`)
         p=story.content
     div    

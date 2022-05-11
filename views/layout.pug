@@ -9,6 +9,7 @@ html
         ul
         if locals.authenticated
           span Welcome #{user.fullName}!
+          a(href='/stories/new') Create a new Story
           form(action='/users/logout' method='post')
             button(type='submit') Logout
         else
@@ -16,8 +17,8 @@ html
             div
               a(href='/users/log-in') Login
             div
+            div
               a(href='/users/register') Register
-            div 
               form(action='/users/log-in' method="post")
                 input(type="hidden" name="_csrf" value=csrfToken)
                 input(type="hidden" name="email" value='demo@demo.com')
