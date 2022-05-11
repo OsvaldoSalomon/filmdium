@@ -9,11 +9,13 @@ block content
         a(href=`/stories/${story.id}/delete`) Delete
         img(src=`${story.imgUrl}`)
         p=story.content
-    div    
+    div
+        button(id=`likes-count` name="likes" value=likes)=likes
+    div
     form(action=`/comments` method='post')
         input(type="hidden" name="_csrf" value=csrfToken)
         input(type="hidden" name='storyId' value=storyId)
-        label Comments 
+        label Comments
         input(type="text" name='content')
         button(type='button') Cancel
         button(type='submit') Create
