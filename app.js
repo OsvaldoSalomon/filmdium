@@ -7,10 +7,11 @@ const { sequelize } = require('./db/models');
 const { sessionSecret } = require('./config');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const { restoreUser } = require('./auth')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const storiesRouter = require('./routes/stories');
-const { restoreUser } = require('./auth')
+const commentsRouter = require('./routes/comments')
 
 const app = express();
 
@@ -39,15 +40,13 @@ app.use(
 
 // create Session table if it doesn't already exist
 store.sync();
-
 app.use(restoreUser)
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/stories', storiesRouter);
-
-
-
+app.use('/comments', commentsRouter)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));

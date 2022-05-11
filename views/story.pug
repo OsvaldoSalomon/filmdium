@@ -8,3 +8,15 @@ block content
         a(href=`/stories/${story.id}/edit`) Edit
         img(src=`${story.imgUrl}`)
         p=story.content
+    div    
+    form(action=`/comments` method='post')
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name='storyId' value=storyId)
+        label Comments 
+        input(type="text" name='content')
+        button(type='button') Cancel
+        button(type='submit') Create
+    each comment in comments
+        div(id=`comments-container-${comment.id}`)
+            p(id=`comments-author-${comment.id}`)=comment.userId.fullName
+            p(id=`comments-content-${comment.id}`)=comment.content
