@@ -5,5 +5,6 @@ block content
         h1=story.title
         h2=story.author.fullName
         h3=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+        a(href=`/stories/${story.id}/edit`) Edit
         img(src=`${story.imgUrl}`)
         p=story.content
