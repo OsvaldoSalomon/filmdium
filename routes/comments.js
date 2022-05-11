@@ -7,15 +7,16 @@ const router = express.Router();
 
 
 
-router.use((req, res, next) => { 
-    console.log('THIS IS REQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')
-    next()
-})
+// router.use((req, res, next) => {
+//     console.log('THIS IS REQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')
+//     next()
+// })
 
 router.post("/", csrfProtection, asyncHandler(async (req, res) => {
-    const { userId } = req.session.auth
-    const {content, storyId } = req.body;
-    const comment = await db.Comment.create({
+    const userId = req.session.auth.userId
+    const { content, storyId } = req.body;
+    // console.log(content, storyId, userId, '------------------------------------------------------------------------------------------------------------------------')
+    await db.Comment.create({
         userId,
         content,
         storyId

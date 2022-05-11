@@ -25,14 +25,21 @@ router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
         include: [{
             model: db.User,
             as: 'author',
-        },
-        db.Comment
+        }, {
+           model: db.Comment,
+           include: db.User
+        }
         ]
 
     })
+    console.log(story.Comments[0])
+    // const commentUserId = req.session.auth.userId
     const storyId = req.params.id
-    const comments = story.Comments
-    res.render("story", { story, storyId, comments, csrfToken: req.csrfToken() })
+    // const comments = story.Comments
+    // console.log(comments)
+    // const commentUser = await db.User.findByPk(commentUserId)
+    // console.log(story.Comments[0].userId)
+    res.render("story", { story, storyId, csrfToken: req.csrfToken() })
 }))
 
 
@@ -107,7 +114,7 @@ router.get('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) =>
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
 
-    res.render("storyDelete", {story, csrfToken: req. csrfToken()})
+    res.render("storyDelete", { story, csrfToken: req.csrfToken() })
 }))
 
 router.post('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {

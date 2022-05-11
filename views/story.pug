@@ -16,7 +16,7 @@ block content
         input(type="text" name='content')
         button(type='button') Cancel
         button(type='submit') Create
-    each comment in comments
+    each comment in story.Comments
         div(id=`comments-container-${comment.id}`)
-            p(id=`comments-author-${comment.id}`)=comment.userId.fullName
+            p(id=`comments-author-${comment.id}`)=comment.User.fullName
             p(id=`comments-content-${comment.id}`)=comment.content
