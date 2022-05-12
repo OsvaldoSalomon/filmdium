@@ -21,9 +21,7 @@ router.post("/", csrfProtection, asyncHandler(async (req, res) => {
 // })
 
 router.get("/comments/:id", csrfProtection, asyncHandler(async (req, res) => {
-    const commentId = req.params.id
-    console.log(commentId, storyId)
-    res.render(`edit-comment`, { csrfToken: req.csrfToken(), commentId })
+    res.render(`edit-comment`, { csrfToken: req.csrfToken() })
 }))
 
 router.put("/", csrfProtection, asyncHandler(async (req, res) => {
