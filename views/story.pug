@@ -19,9 +19,9 @@ block content
         div
             form(action=`/likes` method='post')
                 input(type="hidden" name="_csrf" value=csrfToken)
-                input(type="hidden" name='storyId' value=storyId)
+                input(type="hidden" name='storyId' id="storyId" value=storyId)
                 label Likes:
-                    span(class="likes-number")= likes
+                p(class="likes-number" value=likes.length)= likes
         div
         button(type="submit" class="like-button") Like this story
         hr
