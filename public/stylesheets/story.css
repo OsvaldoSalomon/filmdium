@@ -11,6 +11,10 @@ body {
     padding: 2em 8em;
 }
 
+.hidden {
+    display: none;
+}
+
 .img-container {
     display: block;
     width: 80%;

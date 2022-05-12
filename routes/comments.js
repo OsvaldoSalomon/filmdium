@@ -1,7 +1,6 @@
 const express = require('express');
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
-const app = require('../app');
 
 const router = express.Router();
 
@@ -19,14 +18,13 @@ router.post("/", csrfProtection, asyncHandler(async (req, res) => {
 //     console.log('THIS IS REQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ')
 //     next()
 // })
-router.put("/:id", csrfProtection, asyncHandler(async (req, res) => {
-    const comment = await Post.findByPk(req.params.id)
+router.put("/:id", asyncHandler(async (req, res) => {
+    const comment = await db.Comment.findByPk(req.params.id)
     comment.content = req.body.content
     await comment.save()
-
     res.json({
         message: 'Success',
-        post
+        commentContent: comment.content
     })
 }))
 
