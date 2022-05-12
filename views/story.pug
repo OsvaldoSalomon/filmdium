@@ -1,23 +1,33 @@
 extends layout.pug
 
+append head
+    link(rel="stylesheet" href="/stylesheets/story.css")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
+
 block content
-    div
-        h1=story.title
-        h2=story.author.fullName
-        h3=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-        a(href=`/stories/${story.id}/edit`) Edit
-        a(href=`/stories/${story.id}/delete`) Delete
-        img(src=`${story.imgUrl}`)
+    div(class='story')
+        div(class='headings')
+            div(class='author-and-date')
+                h2(class='author')=story.author.fullName
+                h3(class='date')=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+            h1=story.title
+            div(class='buttons')
+                a(class='button' id='edit-btn' href=`/stories/${story.id}/edit`) Edit
+                a(class='button' id='delete-btn' href=`/stories/${story.id}/delete`) Delete
+        div(class='img-container')
+            img(src=`${story.imgUrl}` class='img')
         p=story.content
-    div    
-    form(action=`/comments` method='post')
-        input(type="hidden" name="_csrf" value=csrfToken)
-        input(type="hidden" name='storyId' value=storyId)
-        label Comments 
-        input(type="text" name='content')
-        button(type='button') Cancel
-        button(type='submit') Create
-    each comment in story.Comments
-        div(id=`comments-container-${comment.id}`)
-            p(id=`comments-author-${comment.id}`)=comment.User.fullName
-            p(id=`comments-content-${comment.id}`)=comment.content
+        hr
+        h1(class='comment-heading') Comments
+        form(action=`/comments` method='post')
+            input(type="hidden" name="_csrf" value=csrfToken)
+            input(type="hidden" name='storyId' value=storyId)
+            label(for='contentInput') Add a comment
+            input(type="text" id='contentInput' name='content')
+            button(class='button' id='cancel-btn' type='button') Cancel
+            button(class='button' id='create-btn' type='submit') Create
+        each comment in story.Comments
+            div(class='comment' id=`comments-container-${comment.id}`)
+                p(id=`comments-author-${comment.id}`)=comment.User.fullName
+                hr
+                p(id=`comments-content-${comment.id}`)=comment.content
