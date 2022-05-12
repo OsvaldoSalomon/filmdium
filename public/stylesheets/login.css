@@ -1,0 +1,86 @@
+body {
+    background: url(https://images.unsplash.com/photo-1634118931958-f1cf1f9c6156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80) no-repeat center center fixed;
+    background-size: cover;
+
+}
+
+.header {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+}
+
+.form {
+    background-color: white;
+    border: .2em solid grey;
+    height: 32em;
+    width: 35em;
+    position: absolute;
+    background-color: white;
+    top: 20%;
+    left: 35%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.email {
+    font-weight: bold;
+    padding-left: 1.5em;
+    display:flex;
+    padding-bottom: .5em;
+}
+
+.password {
+    font-weight: bold;
+    padding-left: 1.5em;
+    display:flex;
+    margin-top: 2em;
+    padding-bottom: .5em;
+}
+
+.email-box {
+    width: 38em;
+    border-radius: .5em;
+    padding: .7em;
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.password-box {
+    width: 38em;
+    border-radius: .5em;
+    padding: .7em;
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.sign-in-button {
+    text-decoration: none;
+    background-color: #1E64DD;
+    color: white;
+    padding: 15px 5px 15px 5px;
+    border: 1px solid lightblue;
+    border-radius: .5em;
+    width: 18em;
+    font-size: .7em;
+    margin: 2em auto;
+    margin-left: 6.5em;
+    font-size: 18px
+}
+
+.account {
+    display: inline-block;
+    padding-left: 8.5em;
+    padding-right: .3em;
+    padding-top: 1em;
+}
+
+.register-link {
+    text-decoration: none;
+    display: inline-block;
+    justify-content: right;
+    color: #1E64DD;
+}
