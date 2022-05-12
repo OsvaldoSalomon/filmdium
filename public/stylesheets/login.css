@@ -14,7 +14,7 @@ body {
 
 .form {
     background-color: white;
-    border: .2em solid grey;
+    box-shadow: 0 0 5px #9095A1;
     height: 32em;
     width: 35em;
     position: absolute;
