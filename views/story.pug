@@ -1,32 +1,48 @@
 extends layout.pug
 
+append head
+    link(rel="stylesheet" href="/stylesheets/story.css")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
 block content
-    div
-        h1=story.title
-        h2=story.author.fullName
-        h3=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-        a(href=`/stories/${story.id}/edit`) Edit
-        a(href=`/stories/${story.id}/delete`) Delete
-        img(src=`${story.imgUrl}`)
+    div(class='story')
+        div(class='headings')
+            div(class='author-and-date')
+                h2(class='author')=story.author.fullName
+                h3(class='date')=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+            h1=story.title
+            div(class='buttons')
+                a(class='button' id='edit-btn' href=`/stories/${story.id}/edit`) Edit
+                a(class='button' id='delete-btn' href=`/stories/${story.id}/delete`) Delete
+        div(class='img-container')
+            img(src=`${story.imgUrl}` class='img')
         p=story.content
-    div
-    form(action=`/likes` method='post')
-        input(type="hidden" name="_csrf" value=csrfToken)
-        input(type="hidden" name='storyId' value=storyId)
-        label Likes:
-            span(class="likes-number")= likes
+        div
+            form(action=`/likes` method='post')
+                input(type="hidden" name="_csrf" value=csrfToken)
+                input(type="hidden" name='storyId' value=storyId)
+                label Likes:
+                    span(class="likes-number")= likes
         div
         button(type="submit" class="like-button") Like this story
-    script(src="/javascripts/likeAddDelete.js" type="module" defer)
-    div
-    form(action=`/comments` method='post')
-        input(type="hidden" name="_csrf" value=csrfToken)
-        input(type="hidden" name='storyId' value=storyId)
-        label Comments
-        input(type="text" name='content')
-        button(type='button') Cancel
-        button(type='submit') Create
-    each comment in story.Comments
-        div(id=`comments-container-${comment.id}`)
-            p(id=`comments-author-${comment.id}`)=comment.User.fullName
-            p(id=`comments-content-${comment.id}`)=comment.content
+        hr
+        h1(class='comment-heading') Comments
+        form(action=`/comments` method='post')
+            input(type="hidden" name="_csrf" value=csrfToken)
+            input(type="hidden" name='storyId' value=storyId)
+            label(for='contentInput') Add a comment
+            input(type="text" id='contentInput' name='content' placeholder='Add a Comment..')
+            button(class='reset' id='cancel-btn' type='button') Cancel
+            button(class='submit' id='create-btn' type='submit') Create
+        each comment in story.Comments
+            div(class='comment' id=`comments-container-${comment.id}`)
+                p=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                p(id=`comments-author-${comment.id}`)=comment.User.fullName
+                hr
+                p(id=`comments-content-${comment.id}`)=comment.content
+                if loggedInUserId === comment.User.id
+                    button(class="editButton" id=`edit-comment-${comment.id}`) Edit
+                    button(class="deleteButton" id=`delete-comment-${comment.id}`) Delete
+                    //- form(class='hidden' id=`edit-form-${comment.id}`)
+                    //-     input(type="hidden" name="title" value=comment.User.fullName id=`${comment.id}-edit-title`)=comment.User.fullName
+                    //-     input(type="text" name="content" value=comment.content id=`${comment.id}-edit-content`)
+                    //-     button(class="edit-submit" id=`edit-submit-${comment.id}`) Submit Edit

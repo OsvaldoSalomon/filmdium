@@ -7,7 +7,6 @@ const router = express.Router();
 
 
 router.get("/", asyncHandler(async (req, res) => {
-    console.log('In get stories /')
     const stories = await db.Story.findAll({
         include: {
             model: db.User,
@@ -20,7 +19,7 @@ router.get("/", asyncHandler(async (req, res) => {
 
 
 router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
-
+    let loggedInUserId
     const story = await db.Story.findByPk(req.params.id, {
         include: [{
             model: db.User,
@@ -34,16 +33,12 @@ router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
         ]
 
     })
+    if (req.session.auth) {
+        loggedInUserId = req.session.auth.userId
+    }
     let likes = await db.Like.count()
-    // console.log(likes)
-    // console.log(story.Comments[0])
-    // const commentUserId = req.session.auth.userId
     const storyId = req.params.id
-    // const comments = story.Comments
-    // console.log(comments)
-    // const commentUser = await db.User.findByPk(commentUserId)
-    // console.log(story.Comments[0].userId)
-    res.render("story", { story, storyId, likes, csrfToken: req.csrfToken() })
+    res.render("story", { story, storyId, likes, loggedInUserId, csrfToken: req.csrfToken() })
 }))
 
 

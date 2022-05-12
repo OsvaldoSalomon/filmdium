@@ -2,9 +2,9 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title="Filmdium"
         link(rel='stylesheet' href='/stylesheets/reset.css')
-        //- script(src="/javascript/likeAddDelete.js" type="module" defer)
+        script(src="/javascripts/index.js" type="module" defer)
   body
     div
         ul
@@ -18,12 +18,5 @@ html
           span()
             div
               a(href='/users/log-in') Login
-            div
-            div
               a(href='/users/register') Register
-              form(action='/users/log-in' method="post")
-                input(type="hidden" name="_csrf" value=csrfToken)
-                input(type="hidden" name="email" value='demo@demo.com')
-                input(type="hidden" name="password" value='password123')
-                button(type="submit" id='demoButton') Demo User
     block content

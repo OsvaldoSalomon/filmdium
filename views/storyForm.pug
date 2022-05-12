@@ -1,13 +1,27 @@
 extends layout.pug
+
 include utils.pug
+    link(rel="stylesheet" href="/stylesheets/storyForm.css")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
+
 block content
     +validationErrorSummary(errors)
-    form(action='/stories/new' method='POST')
-        input(name='_csrf' type='hidden' value=csrfToken)
-        label Title
-        input(type='text' name='title' required value=stories.title)
-        label Content
-        input(type='text' name='content' required value=stories.content)
-        label Image
-        input(type='text' name='imgUrl' required value=stories.imgUrl)
-        button(type="submit") Submit
+    div(class="form")
+        form(action='/stories/new' method='POST')
+            input(name='_csrf' type='hidden' value=csrfToken)
+            h1(class="header") Draft
+            div(class="title")
+                label Title
+            div(class="title-box")
+                input(type='text' name='title' placeholder="Title for your story" required value=stories.title)
+            div(class="content")
+                label Content
+            div(class="content-box")
+               textarea(name='content' class="content-space" placeholder="Tell your story..." required value=stories.content)
+            div(class="img")
+                label Image
+            div(class="img-box")
+                input(type='text' name='imgUrl' placeholder="Enter an image link for your film" required value=stories.imgUrl)
+            div(class="buttons")
+                a(href=`/stories` class="cancel-button") Cancel
+                button(type="submit" class="create-button") Create

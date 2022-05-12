@@ -1,13 +1,27 @@
 extends layout.pug
 
 include error.pug
+    link(rel="stylesheet" href="/stylesheets/login.css")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
 
 block content
+    div
+        form(action='/users/log-in' method="post")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            input(type="hidden" name="email" value='demo@demo.com')
+            input(type="hidden" name="password" value='password123')
+            button(type="submit" id='demoButton') Demo User
     +validationErrorSummary(errors)
-    form(action='/users/log-in' method="post")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        label Email
-        input(type="email" name="email" required)
-        label Password
-        input(type="password" name="password" required)
-        button(type="submit") Log-In
+    div(class="main-content")
+        //- img(class="main-img" src="https://images.unsplash.com/photo-1634118931958-f1cf1f9c6156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80")
+        div(class="form")
+            form(action='/users/log-in' method="post")
+                h1(class="header") Sign in
+                input(type="hidden" name="_csrf" value=csrfToken)
+                label.email Email
+                input(type="email" name="email" class="email-box" placeholder="Enter your email" required)
+                label.password Password
+                input(type="password" name="password" class="password-box" placeholder="Enter your password" required)
+                button(type="submit" class="sign-in-button") Sign in
+                div(class="account") Don't have an account?
+                a(class="register-link" href=`/users/register`) Sign up
