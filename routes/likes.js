@@ -4,16 +4,26 @@ const db = require('../db/models')
 
 const router = express.Router();
 
-router.post("/", csrfProtection, asyncHandler(async (req, res) => {
+router.post("/", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const { storyId } = req.body;
-
-    await db.Like.create({
-        userId,
-        storyId
+    const likesCount = await db.Like.count()
+    const like = await db.Like.findOne({
+        where: {
+            storyId,
+            userId
+        }
     })
-
-    res.redirect(`/stories/${storyId}`)
+    if (!like) {
+        await db.Like.create({
+            userId,
+            storyId
+        })
+        res.json({ message: "CreatedLike", likesCount })
+    } else {
+        await like.destroy()
+        res.json({ message: "DestroyLike", likesCount })
+    }
 }))
 
 module.exports = router;

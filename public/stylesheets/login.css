@@ -8,6 +8,14 @@ input::placeholder {
     font-family: 'Montserrat', sans-serif;
 }
 
+.filmdium {
+    color:white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+}
+
 .header {
     display: block;
     text-align: center;
