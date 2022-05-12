@@ -3,7 +3,6 @@ extends layout.pug
 append head
     link(rel="stylesheet" href="/stylesheets/story.css")
     link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
-
 block content
     div(class='story')
         div(class='headings')
@@ -23,11 +22,19 @@ block content
             input(type="hidden" name="_csrf" value=csrfToken)
             input(type="hidden" name='storyId' value=storyId)
             label(for='contentInput') Add a comment
-            input(type="text" id='contentInput' name='content')
-            button(class='button' id='cancel-btn' type='button') Cancel
-            button(class='button' id='create-btn' type='submit') Create
+            input(type="text" id='contentInput' name='content' placeholder='Add a Comment..')
+            button(class='reset' id='cancel-btn' type='button') Cancel
+            button(class='submit' id='create-btn' type='submit') Create
         each comment in story.Comments
             div(class='comment' id=`comments-container-${comment.id}`)
+                p=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
                 p(id=`comments-author-${comment.id}`)=comment.User.fullName
                 hr
                 p(id=`comments-content-${comment.id}`)=comment.content
+                if loggedInUserId === comment.User.id 
+                    button(class="editButton" id=`edit-comment-${comment.id}`) Edit
+                    button(class="deleteButton" id=`delete-comment-${comment.id}`) Delete
+                    //- form(class='hidden' id=`edit-form-${comment.id}`) 
+                    //-     input(type="hidden" name="title" value=comment.User.fullName id=`${comment.id}-edit-title`)=comment.User.fullName 
+                    //-     input(type="text" name="content" value=comment.content id=`${comment.id}-edit-content`) 
+                    //-     button(class="edit-submit" id=`edit-submit-${comment.id}`) Submit Edit
