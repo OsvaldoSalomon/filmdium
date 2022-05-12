@@ -24,5 +24,5 @@ block content
             p=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
             p(id=`comments-author-${comment.id}`)=comment.User.fullName
             p(id=`comments-content-${comment.id}`)=comment.content
-            a(href=`/comments/${comment.id}`) Edit
-            a(href=`/comments/${comment.id}`) Delete
+            a(href=`/comments/${comment.id}` class="editButton") Edit
+            a(href=`/comments/${comment.id}` class="deleteButton") Delete

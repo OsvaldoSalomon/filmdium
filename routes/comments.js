@@ -20,11 +20,11 @@ router.post("/", csrfProtection, asyncHandler(async (req, res) => {
 //     next()
 // })
 
-router.get("/comments/:id", csrfProtection, asyncHandler(async (req, res) => {
+router.get("/:id", csrfProtection, asyncHandler(async (req, res) => {
     res.render(`edit-comment`, { csrfToken: req.csrfToken() })
 }))
 
-router.put("/", csrfProtection, asyncHandler(async (req, res) => {
+router.put("/:id", csrfProtection, asyncHandler(async (req, res) => {
     const { content, storyId } = req.body;
     await db.Comment.update({
         userId,
@@ -34,11 +34,14 @@ router.put("/", csrfProtection, asyncHandler(async (req, res) => {
     res.redirect(`/stories/${storyId}`)
 }))
 
-router.delete("/", csrfProtection, asyncHandler(async (req, res) => {
-    const { content, storyId } = req.body;
-    console.log(req.body)
-    const comment = await db.Comment.findByPk()
-    res.redirect(`/stories/${storyId}`)
+router.delete("/:id", csrfProtection, asyncHandler(async (req, res) => {
+    const comment = await db.Comment.findByPk(req.params.id)
+    if (comment) {
+        await comment.destroy()
+        res.json({message: 'Comment successfully deleted'})
+    } else {
+        res.json({message: 'Fail to delete the comment'})
+    }
 }))
 
 module.exports = router;
