@@ -60,9 +60,7 @@ window.addEventListener("load", (event) => {
                     const contentEle = document.getElementById(`comments-content-${commentId}`)
                     contentEle.innerHTML = data.commentContent
                     form.classList.add('hidden')
-                } else {
-                    // create elements with error message
-                }
+                } 
             })
     
         })
