@@ -6,12 +6,14 @@ append head
 
 block content
     each story in stories
-        div(id=`story-container-${story.id}` class='story')
-            div(class='story-body')
-                h2(id=`story-title-${story.id}` class='story-title')
-                    a(href=`/stories/${story.id}`)=story.title
-                h2(id=`story-author-${story.id}` class='story-author')=story.author.fullName
-                h3(class='story-date')=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-                p(id=`story-content-${story.id}` class='story-content')=story.content
-            div(class='story-body-img')
-                img(id=`story-img-${story.id}` class='story-img' src=`${story.imgUrl}`)
+        div(class='stories-section')
+            div(id=`story-container-${story.id}` class='story')
+                div(class='story-body')
+                    div(class='name-and-date')
+                        h3(id=`story-author-${story.id}` class='story-author')=story.author.fullName
+                        h3(class='story-date')=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                    h2(id=`story-title-${story.id}` class='story-title')
+                        a(href=`/stories/${story.id}`)=story.title
+                    p(id=`story-content-${story.id}` class='story-content')=story.content
+                div(class='story-body-img')
+                    img(id=`story-img-${story.id}` class='story-img' src=`${story.imgUrl}`)
