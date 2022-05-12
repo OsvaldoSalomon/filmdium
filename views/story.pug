@@ -16,6 +16,14 @@ block content
         div(class='img-container')
             img(src=`${story.imgUrl}` class='img')
         p=story.content
+        div
+            form(action=`/likes` method='post')
+                input(type="hidden" name="_csrf" value=csrfToken)
+                input(type="hidden" name='storyId' id="storyId" value=storyId)
+                label Likes:
+                p(class="likes-number" value=likes.length)= likes
+        div
+        button(type="submit" class="like-button") Like this story
         hr
         h1(class='comment-heading') Comments
         form(action=`/comments` method='post')
