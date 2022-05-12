@@ -1,6 +1,6 @@
 window.addEventListener("load", (event) => {
 
-    //   DELETE COMMENTS BUTTON
+    //   DELETE COMMENTS BUTTONS
 
     const deleteButtons = document.querySelectorAll('.deleteButton')
     for (let i = 0; i < deleteButtons.length; i++) {
@@ -19,17 +19,8 @@ window.addEventListener("load", (event) => {
         })
     }
 
-    //  EDIT COMMENTS BUTTON
-
-    // document.querySelector('.editButton').addEventListener('click', (e) => {
-    //     const commentId = e.target.id.split('-')[2]
-    //     const comment = document.querySelector(`#comments-content-${commentId}`)
-    //     comment.setAttribute('contenteditable', 'true');
-    //     comment.focus();
-    // });
-
+    // EDIT COMMENT BUTTONS
     const editBtns = document.querySelectorAll('.editButton')
-
     for (let i = 0; i < editBtns.length; i++) {
         const btn = editBtns[i];
         btn.addEventListener('click', (e) => {
@@ -53,35 +44,24 @@ window.addEventListener("load", (event) => {
                         content
                     })
                 })
-
+                const errorDiv = document.querySelector(`.error-div-${commentId}`)
                 const data = await res.json()
                 if (data.message === 'Success') {
+                    errorDiv.innerHTML = ''
                     const contentEle = document.getElementById(`comments-content-${commentId}`)
                     contentEle.innerHTML = data.commentContent
                     form.classList.add('hidden')
-                } 
+                } else {
+                    errorDiv.innerHTML = data.error
+                    form.classList.add('hidden')
+                }
             })
-    
+
         })
     }
 })
 
-
-//load the pug file
-//import delete script in pug file
-// delete comment should have id's on them
-//add event listeners to delete buttons
-// on click get id of the comment and send a fetch request to delete it from the database
-//when it matches the route deleted from database respond with message of success
-//if i have the message on my script file delete the comment div
-
-
-
-
-
-
-
-
+//  LIKE BUTTON
 
 const likeButton = document.querySelectorAll(".like-button")
 
