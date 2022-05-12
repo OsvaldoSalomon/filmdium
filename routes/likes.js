@@ -3,26 +3,36 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models')
 
 const router = express.Router();
-
-router.post("/", csrfProtection, asyncHandler(async (req, res) => {
+router.use((req, res, next) => {
+    console.log("IN THE ROUTER &&*&&&&&&&&&&&&&&&")
+    next()
+})
+router.post("/", asyncHandler(async (req, res) => {
+    console.log("**************************************")
     const userId = req.session.auth.userId
     const { storyId } = req.body;
 
-    await db.Like.create({
-        userId,
-        storyId
+    // check if the user likes this story
+    console.log(storyId, userId)
+    const like = await db.Like.findOne({
+        where: {
+            storyId,
+            userId
+        }
     })
-    res.redirect(`/stories/${storyId}`)
-}))
 
-router.delete("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
-    const { storyId } = req.body;
-    const likeId = parseInt(req.params.id, 10);
-
-    const like = await db.Like.findByPk(likeId)
-
-    await like.destroy();
-    res.redirect(`/stories/${storyId}`)
+    if (!like) {
+        console.log("****************It hit the no like **********************")
+        await db.Like.create({
+            userId,
+            storyId
+        })
+        res.json({ message: "CreatedLike" })
+    } else {
+        console.log("**********************It hit the like success ****************")
+        await like.destroy()
+        res.json({ message: "DestroyLike" })
+    }
 }))
 
 module.exports = router;

@@ -35,8 +35,8 @@ router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
 
     })
     let likes = await db.Like.count()
-    console.log(likes)
-    console.log(story.Comments[0])
+    // console.log(likes)
+    // console.log(story.Comments[0])
     // const commentUserId = req.session.auth.userId
     const storyId = req.params.id
     // const comments = story.Comments

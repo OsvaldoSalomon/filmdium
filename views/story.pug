@@ -13,14 +13,11 @@ block content
     form(action=`/likes` method='post')
         input(type="hidden" name="_csrf" value=csrfToken)
         input(type="hidden" name='storyId' value=storyId)
-        label Likes
-        p=likes
-        button(type="submit") Like this story
-    div
-    form(action=`/likes/:id` method='post')
-        input(type="hidden" name="_csrf" value=csrfToken)
-        input(type="hidden" name='storyId' value=storyId)
-        button(type="submit") Remove like
+        label Likes:
+            span(class="likes-number")= likes
+        div
+        button(type="submit" class="like-button") Like this story
+    script(src="/javascripts/likeAddDelete.js" type="module" defer)
     div
     form(action=`/comments` method='post')
         input(type="hidden" name="_csrf" value=csrfToken)
