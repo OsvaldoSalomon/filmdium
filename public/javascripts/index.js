@@ -1,9 +1,8 @@
 window.addEventListener("load", (event) => {
-   
-   //   DELETE COMMENTS BUTTON
+
+    //   DELETE COMMENTS BUTTON
 
     const deleteButtons = document.querySelectorAll('.deleteButton')
-
     for (let i = 0; i < deleteButtons.length; i++) {
         const delButton = deleteButtons[i];
         delButton.addEventListener('click', async (e) => {
@@ -12,10 +11,9 @@ window.addEventListener("load", (event) => {
             const res = await fetch(`/comments/${commentId}`, {
                 method: 'DELETE'
             })
-
             const data = await res.json()
-            if (data.message === 'Success') {
-                const container = document.getElementById(`comments-container-${commentId}`)
+            if (data.message === 'Comment successfully deleted') {
+                const container = document.querySelector(`#comments-container-${commentId}`)
                 container.remove()
             }
         })
@@ -24,47 +22,45 @@ window.addEventListener("load", (event) => {
 
     //  EDIT COMMENTS BUTTON
 
-    const editButtons = document.querySelectorAll('.editButton')
+    // const editBtns = document.querySelectorAll('.editButton')
 
-    for (let i = 0; i < editButtons.length; i++) {
-        const edButton = editButtons[i];
-        edButton.addEventListener('click', (e) => {
-            const postId = e.target.id.split('-')[2]
-            const form = document.getElementById(`edit-form-${postId}`)
-            if (form.classList.contains('hidden')) {
-                form.classList.remove('hidden')
-            } else {
-                form.classList.add('hidden')
-            }
+    // for (let i = 0; i < editBtns.length; i++) {
+    //     const btn = editBtns[i];
+    //     btn.addEventListener('click', (e) => {
+    //         const commentId = e.target.id.split('-')[2]
+    //         const form = document.getElementById(`edit-form-${commentId}`)
+    //         if (form.classList.contains('hidden')) {
+    //             form.classList.remove('hidden')
+    //         } else {
+    //             form.classList.add('hidden')
+    //         }
 
-            const submitBtn = document.getElementById(`edit-submit-${postId}`)
-            submitBtn.addEventListener('click', async (submitEvent) => {
-                submitEvent.preventDefault()
-                const title = document.getElementById(`${postId}-edit-title`).value
-                const content = document.getElementById(`${postId}-edit-content`).value
+    //         const submitBtn = document.getElementById(`edit-submit-${commentId}`)
+    //         submitBtn.addEventListener('click', async (submitEvent) => {
+    //             submitEvent.preventDefault()
+    //             const content = document.getElementById(`${commentId}-edit-content`).value
 
+    //             const res = await fetch(`/posts/${commentId}`, {
+    //                 method: 'PUT',
+    //                 headers: { 'Content-Type': 'application/json' },
+    //                 body: JSON.stringify({
+    //                     title,
+    //                     content
+    //                 })
+    //             })
 
-                const res = await fetch(`/posts/${postId}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        title,
-                        content
-                    })
-                })
-
-                const data = await res.json()
-                if (data.message === 'Success') {
-                    const titleEle = document.getElementById(`${postId}-title`)
-                    const contentEle = document.getElementById(`${postId}-content`)
-                    titleEle.innerHTML = data.post.title
-                    contentEle.innerHTML = data.post.content
-                    form.classList.add('hidden')
-                } 
-            })
-
-        })
-    }
+    //             const data = await res.json()
+    //             if (data.message === 'Success') {
+    //                 const contentEle = document.getElementById(`${postId}-content`)
+    //                 contentEle.innerHTML = data.post.content
+    //                 form.classList.add('hidden')
+    //             } else {
+    //                 // create elements with error message
+    //             }
+    //         })
+    // 
+    //     })
+    // }
 })
 
 
