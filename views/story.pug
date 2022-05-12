@@ -30,11 +30,11 @@ block content
                 p=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
                 p(id=`comments-author-${comment.id}`)=comment.User.fullName
                 hr
-                p(id=`comments-content-${comment.id}`)=comment.content
+                p(type='submit' id=`comments-content-${comment.id}`)=comment.content
                 if loggedInUserId === comment.User.id 
                     button(class="editButton" id=`edit-comment-${comment.id}`) Edit
                     button(class="deleteButton" id=`delete-comment-${comment.id}`) Delete
-                    //- form(class='hidden' id=`edit-form-${comment.id}`) 
-                    //-     input(type="hidden" name="title" value=comment.User.fullName id=`${comment.id}-edit-title`)=comment.User.fullName 
-                    //-     input(type="text" name="content" value=comment.content id=`${comment.id}-edit-content`) 
-                    //-     button(class="edit-submit" id=`edit-submit-${comment.id}`) Submit Edit
+                    form(class='hidden' id=`edit-form-${comment.id}`) 
+                        input(type="hidden" name="title" value=comment.User.fullName id=`${comment.id}-edit-title`)
+                        input(type="text" name="content" value=comment.content id=`${comment.id}-edit-content`) 
+                        button(type='submit' class="edit-submit" id=`edit-submit-${comment.id}`) Submit Edit
