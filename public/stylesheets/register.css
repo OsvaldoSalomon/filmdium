@@ -1,0 +1,110 @@
+body {
+    background-color: #404654;
+}
+
+.header {
+    position: relative;
+    padding-left: 2em;
+    padding-top: 1.5em;
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+.main-img {
+    position: absolute;
+    /* height: 100%; */
+}
+
+
+.form-box {
+    background-color: white;
+    border: .2em solid grey;
+    /* box-shadow: 5px 1px 5px 1px grey; */
+    height: 38em;
+    width: 40em;
+    position: absolute;
+    background-color: white;
+    top: 30%;
+    left: 45%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.form-header {
+    font-weight: bold;
+    padding-left: .7em;
+    padding-bottom: .7em;
+    display:flex
+}
+
+.name {
+    font-weight: bold;
+    padding-left: 1.5em;
+    display:flex;
+    padding-bottom: .2em;
+}
+
+.username {
+    font-weight: bold;
+    padding-left: 1.5em;
+    display:flex;
+    padding-bottom: .2em;
+}
+
+.email {
+    font-weight: bold;
+    padding-left: 1.5em;
+    display:flex;
+    padding-bottom: .2em;
+}
+
+.password {
+    font-weight: bold;
+    padding-left: 1.5em;
+    display:flex;
+    padding-bottom: .2em;
+}
+
+.confirm {
+    font-weight: bold;
+    padding-left: 1.5em;
+    display:flex;
+    padding-bottom: .2em;
+}
+
+.submit-button {
+    text-decoration: none;
+    background-color: #1E64DD;
+    color: white;
+    padding: 8px 5px 8px 5px;
+    border: 1px solid lightblue;
+    border-radius: .5em;
+    width: 33em;
+    font-size: .7em;
+    margin: 2em auto;
+    margin-left: 1em;
+    font-size: 18px
+}
+
+input {
+    width: 44em;
+    border-radius: .5em;
+    padding: .7em;
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.account {
+    display: inline-block;
+    padding-left: 11.5em;
+    padding-right: .3em;
+    /* padding-bottom: 1em; */
+}
+
+.log-in-link {
+    text-decoration: none;
+    display: inline-block;
+    justify-content: right;
+    color: #1E64DD;
+}
