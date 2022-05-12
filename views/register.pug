@@ -1,19 +1,28 @@
-extends layout.pug 
+extends layout.pug
 
 include error.pug
+    link(rel="stylesheet" href="/stylesheets/register.css")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
 
-block content 
+block content
     +validationErrorSummary(errors)
-    form(action='/users/register' method='POST')
-        input(name='_csrf' type='hidden' value=csrfToken)
-        label Full name
-        input(type='text' name='fullName' required value=user.fullName)
-        label Username
-        input(type='text' name='username' required value=user.username)
-        label Email
-        input(type='email' name='email' required value=user.email)
-        label Password
-        input(type='password' name='password' required value=user.password)
-        label Confirm Password
-        input(type='password' name='confirmPassword' required)
-        button(type='submit') Submit
+    div(class="register-container")
+        img(class='main-img' src='https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+        h1(class="header") Filmdium
+        div(class="form-box")
+            form(action='/users/register' method='POST')
+                h1(class="form-header") Sign up
+                input(name='_csrf' type='hidden' value=csrfToken)
+                label.name Full name
+                input(type='text' name='fullName' placeholder="Enter your name" required value=user.fullName)
+                label.username Username
+                input(type='text' name='username' placeholder="Enter your username" required value=user.username)
+                label.email Email
+                input(type='email' name='email' placeholder="Enter your email" required value=user.email)
+                label.password Password
+                input(type='password' name='password' placeholder="Enter your password" required value=user.password)
+                label.confirm Confirm Password
+                input(type='password' name='confirmPassword' placeholder="Confirm your password" required)
+                button(type='submit' class="submit-button") Submit
+                div(class="account") Already have an account?
+                a(class="log-in-link" href=`/users/log-in`) Sign in
