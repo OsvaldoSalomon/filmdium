@@ -1,19 +1,12 @@
-extends layout.pug
-
-include error.pug
-    link(rel="stylesheet" href="/stylesheets/login.css")
-    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
-
-block content
-    div
-        form(action='/users/log-in' method="post")
-            input(type="hidden" name="_csrf" value=csrfToken)
-            input(type="hidden" name="email" value='demo@demo.com')
-            input(type="hidden" name="password" value='password123')
-            button(type="submit" id='demoButton') Demo User
+doctype html
+html
+    head
+        title="Filmdium"
+        link(rel="stylesheet" href="/stylesheets/login.css")
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
+    include error.pug
     +validationErrorSummary(errors)
     div(class="main-content")
-        //- img(class="main-img" src="https://images.unsplash.com/photo-1634118931958-f1cf1f9c6156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80")
         div(class="form")
             form(action='/users/log-in' method="post")
                 h1(class="header") Sign in
@@ -24,4 +17,12 @@ block content
                 input(type="password" name="password" class="password-box" placeholder="Enter your password" required)
                 button(type="submit" class="sign-in-button") Sign in
                 div(class="account") Don't have an account?
-                a(class="register-link" href=`/users/register`) Sign up
+                    a(class="register-link" id='register-button' href=`/users/register`) Sign up
+
+            div(class='demo-user')
+                form(action='/users/log-in' method="post")
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    input(type="hidden" name="email" value='demo@demo.com')
+                    input(type="hidden" name="password" value='password123')
+                    button(class="sign-in-button" type="submit" id='demoButton') Demo User
+
