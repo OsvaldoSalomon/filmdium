@@ -11,6 +11,7 @@ html
         if locals.authenticated
           span Welcome #{user.fullName}!
           a(href='/stories/new') Create a new Story
+          a(href='/') Home
           form(action='/users/logout' method='post')
             button(type='submit') Logout
         else
