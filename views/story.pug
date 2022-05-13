@@ -21,7 +21,7 @@ block content
             form(action=`/likes` method='post')
                 input(type="hidden" name="_csrf" value=csrfToken)
                 input(type="hidden" name='storyId' id="storyId" value=storyId)
-                div(id="likes-number" value=likes.length)= likes
+                div(id="likes-number" value=likes)= likes
                 label(id="likes-label") Likes
                 button(type="submit" class="like-button")
                     ion-icon(id="like-icon-button" name="thumbs-up-outline")
@@ -32,7 +32,7 @@ block content
             input(type="hidden" name='storyId' value=storyId)
             label(for='contentInput') Add a comment
             input(type="text" id='contentInput' name='content' placeholder='Add a Comment..')
-            button(class='reset' id='cancel-btn' type='button') Cancel
+            button(button='reset' id='cancel-btn') Cancel
             button(class='submit' id='create-btn' type='submit') Create
         each comment in story.Comments
             div(class='comment' id=`comments-container-${comment.id}`)
