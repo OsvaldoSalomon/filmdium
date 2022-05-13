@@ -17,7 +17,6 @@ router.get("/", asyncHandler(async (req, res) => {
 }));
 
 
-
 router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
     let loggedInUserId
     const story = await db.Story.findByPk(req.params.id, {

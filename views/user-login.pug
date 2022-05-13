@@ -1,16 +1,10 @@
-extends layout.pug
-
-include error.pug
-    link(rel="stylesheet" href="/stylesheets/login.css")
-    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
-
-block content
-    div
-        form(action='/users/log-in' method="post")
-            input(type="hidden" name="_csrf" value=csrfToken)
-            input(type="hidden" name="email" value='demo@demo.com')
-            input(type="hidden" name="password" value='password123')
-            button(type="submit" id='demoButton') Demo User
+doctype html
+html
+    head
+        title="Filmdium"
+        link(rel="stylesheet" href="/stylesheets/login.css")
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
+    include error.pug
     +validationErrorSummary(errors)
     div(class="main-content")
         h1(class="filmdium") Filmdium
@@ -24,4 +18,12 @@ block content
                 input(type="password" name="password" class="password-box" placeholder="Enter your password" required)
                 button(type="submit" class="sign-in-button") Sign in
                 div(class="account") Don't have an account?
-                a(class="register-link" href=`/users/register`) Sign up
+                    a(class="register-link" id='register-button' href=`/users/register`) Sign up
+
+            div(class='demo-user')
+                form(action='/users/log-in' method="post")
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    input(type="hidden" name="email" value='demo@demo.com')
+                    input(type="hidden" name="password" value='password123')
+                    button(class="sign-in-button" type="submit" id='demoButton') Demo User
+

@@ -1,7 +1,11 @@
 body {
     background: url(https://images.unsplash.com/photo-1634118931958-f1cf1f9c6156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80) no-repeat center center fixed;
     background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
 
+input::placeholder {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .filmdium {
@@ -22,11 +26,9 @@ body {
 
 .form {
     background-color: white;
-    box-shadow: 0 0 5px #9095A1;
-    height: 32em;
+    height: 35em;
     width: 35em;
     position: absolute;
-    background-color: white;
     top: 20%;
     left: 35%;
     border-radius: 10px;
@@ -37,14 +39,14 @@ body {
 .email {
     font-weight: bold;
     padding-left: 1.5em;
-    display:flex;
+    display: flex;
     padding-bottom: .5em;
 }
 
 .password {
     font-weight: bold;
     padding-left: 1.5em;
-    display:flex;
+    display: flex;
     margin-top: 2em;
     padding-bottom: .5em;
 }
@@ -70,12 +72,10 @@ body {
     background-color: #1E64DD;
     color: white;
     padding: 15px 5px 15px 5px;
-    border: 1px solid lightblue;
     border-radius: .5em;
+    border: none;
     width: 18em;
-    font-size: .7em;
-    margin: 2em auto;
-    margin-left: 6.5em;
+    margin: 0 auto 2em 6.5em;
     font-size: 18px
 }
 
@@ -83,7 +83,7 @@ body {
     display: inline-block;
     padding-left: 8.5em;
     padding-right: .3em;
-    padding-top: 1em;
+    padding-top: 3em;
 }
 
 .register-link {
@@ -91,4 +91,14 @@ body {
     display: inline-block;
     justify-content: right;
     color: #1E64DD;
+}
+
+#register-button {
+    margin-top: .1em;
+}
+
+
+.demo-user {
+    position: absolute;
+    bottom: 2em;
 }
