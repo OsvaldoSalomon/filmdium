@@ -12,8 +12,8 @@ block content
             h1=story.title
             div(class='buttons')
                 if loggedInUserId === story.userId
-                    a(class='button' id='edit-btn' href=`/stories/${story.id}/edit`) Edit
-                    a(class='button' id='delete-btn' href=`/stories/${story.id}/delete`) Delete
+                    a(class='button edit-button' id='edit-btn' href=`/stories/${story.id}/edit`) Edit
+                    a(class='button delete-button' id='delete-btn' href=`/stories/${story.id}/delete`) Delete
         div(class='img-container')
             img(src=`${story.imgUrl}` class='img')
         p=story.content
@@ -33,19 +33,17 @@ block content
         form(action=`/comments` method='post')
             input(type="hidden" name="_csrf" value=csrfToken)
             input(type="hidden" name='storyId' value=storyId)
-            label(for='contentInput') Add a comment
             input(type="text" id='contentInput' name='content' placeholder='Add a Comment..')
-            button(class='reset' id='cancel-btn' type='button') Cancel
             button(class='submit' id='create-btn' type='submit') Create
         each comment in story.Comments
             div(class='comment' id=`comments-container-${comment.id}`)
-                p=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                p(class='comment-date')=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
                 p(id=`comments-author-${comment.id}`)=comment.User.fullName
                 hr
                 p(type='submit' id=`comments-content-${comment.id}`)=comment.content
                 if loggedInUserId === comment.User.id
-                    button(class="editButton" id=`edit-comment-${comment.id}`) Edit
-                    button(class="deleteButton" id=`delete-comment-${comment.id}`) Delete
+                    button(class="button edit-btn" id=`edit-comment-${comment.id}`) Edit
+                    button(class="button delete-btn" id=`delete-comment-${comment.id}`) Delete
                     div(class=`error-div-${comment.id}`)
                     form(class='hidden' id=`edit-form-${comment.id}`)
                         input(type="hidden" name="title" value=comment.User.fullName id=`${comment.id}-edit-title`)
