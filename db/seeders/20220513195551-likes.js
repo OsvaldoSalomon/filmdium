@@ -380,6 +380,30 @@ module.exports = {
         storyId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        userId: 20,
+        storyId: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 20,
+        storyId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 21,
+        storyId: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 21,
+        storyId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },
