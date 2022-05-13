@@ -1,0 +1,104 @@
+body {
+    background-color: #F8F9FA
+}
+
+.form {
+    background-color: white;
+    box-shadow: 0 0 5px #9095A1;
+    height: 45em;
+    width: 55em;
+    position: absolute;
+    background-color: white;
+    top: 10%;
+    left: 25%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    /* vertical-align: top; */
+    padding-left: .7em;
+    padding-bottom: .7em;
+    font-weight: bold;
+}
+
+.title {
+    padding-left: 1.5em;
+    display: block;
+    width: auto;
+    margin-top: .3em;
+    font-weight: bold;
+}
+
+.title-box {
+    padding-left: 1.5em;
+    margin-top: .3em;
+    padding-bottom: 1.5em;
+}
+
+.content {
+    padding-left: 1.5em;
+    margin-top: .3em;
+    font-weight: bold;
+}
+
+.content-box {
+    padding-left: 1.5em;
+    margin-top: .3em;
+    padding-bottom: 1.5em;
+}
+
+.img {
+    padding-left: 1.5em;
+    margin-top: .3em;
+    font-weight: bold;
+}
+
+.img-box {
+    padding-left: 1.5em;
+    margin-top: .3em;
+    padding-bottom: 1.5em;
+}
+
+.create-button {
+    text-decoration: none;
+    background-color:#1E64DD;
+    border: #1E64DD;;
+    color: white;
+    padding: .6em 3.1em;
+    border-radius: .5em;
+    font-size: 14px;
+    margin-left: 2em;
+    position: relative;
+    top:10px;
+    left: 562px
+}
+
+.cancel-button {
+    text-decoration: none;
+    background-color:rgb(215, 20, 20);
+    border: rgb(215, 20, 20);
+    color: white;
+    padding: .5em 3em .5em 3em;
+    border-radius: .5em;
+    font-size: 14px;
+    position: relative;
+    top: 10px;
+    left: 562px
+}
+
+input {
+    width: 62em;
+    height: 2.5em;
+    border-radius: .5em;
+    padding-left: .5em;
+    border: solid black 2px;
+}
+
+.content-space {
+    border: solid black 2px;
+    border-radius: .5em;
+    width: 62em;
+    height: 25em;
+}

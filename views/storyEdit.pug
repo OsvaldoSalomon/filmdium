@@ -1,14 +1,27 @@
 extends layout.pug
+
 include utils.pug
+    link(rel="stylesheet" href="/stylesheets/storyEdit.css")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
+
 block content
     +validationErrorSummary(errors)
-    form(action=`/stories/${story.id}/edit` method='POST')
-        input(name='_csrf' type='hidden' value=csrfToken)
-        label Title
-        input(type='text' name='title' required value=story.title)
-        label Content
-        input(type='text' name='content' required value=story.content)
-        label Image
-        input(type='text' name='imgUrl' required value=story.imgUrl)
-        button(type="submit") Submit
-        a(href=`/stories/${story.id}`) Cancel
+    div(class="form")
+        form(action=`/stories/${story.id}/edit` method='POST')
+            input(name='_csrf' type='hidden' value=csrfToken)
+            h1(class="header") Draft
+            div(class="title")
+                label Title
+            div(class="title-box")
+                input(type='text' name='title' required value=story.title)
+            div(class="content")
+                label Content
+            div(class="content-box")
+                textarea(name='content' class="content-space" type=`${story.content}` required value=story.content)
+            div(class="img")
+                label Image
+            div(class="img-box")
+                input(type='text' name='imgUrl' required value=story.imgUrl)
+            div(class="buttons")
+                a(href=`/stories/${story.id}` class="cancel-button") Cancel
+                button(type="submit" class="create-button") Submit
