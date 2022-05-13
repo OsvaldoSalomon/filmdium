@@ -404,6 +404,276 @@ module.exports = {
         storyId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        userId: 21,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 21,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 21,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 21,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 21,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 20,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 20,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 20,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 20,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 20,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 19,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 19,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 19,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 19,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 19,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 18,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 18,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 18,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 18,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 18,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 17,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 17,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 17,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 17,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 17,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 16,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 16,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 16,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 16,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 16,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 15,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 15,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 15,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 15,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 15,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 14,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 14,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 14,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 14,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 14,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 13,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 12,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 12,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 13,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 11,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },
