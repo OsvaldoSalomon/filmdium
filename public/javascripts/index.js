@@ -59,9 +59,9 @@ window.addEventListener("load", (event) => {
                     const contentEle = document.getElementById(`comments-content-${commentId}`)
                     contentEle.innerHTML = data.commentContent
                     form.classList.add('hidden')
-                } 
+                }
             })
-    
+
         })
     }
 })
@@ -99,7 +99,7 @@ for (let i = 0; i < likeButton.length; i++) {
             })
         })
         const data = await res.json()
-        const likesNum = document.querySelector(".likes-number")
+        const likesNum = document.querySelector("#likes-number")
         if (data.message === "CreatedLike") {
             likesNum.innerHTML = data.likesCount + 1
         } else {

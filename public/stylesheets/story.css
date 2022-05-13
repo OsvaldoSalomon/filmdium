@@ -83,8 +83,9 @@ body {
     background-color: #d10000;
 }
 
-input, label {
-    display:block;
+input,
+label {
+    display: block;
 }
 
 .comment-heading {
@@ -121,4 +122,18 @@ input, label {
     border: 1px solid #008cff;
     color: #008cff;
     background-color: transparent;
+}
+
+#likes-number,
+#likes-label {
+    display: inline-block;
+}
+
+.like-button {
+    float: right;
+}
+
+#likes-number,
+#likes-label {
+    padding-right: 10px;
 }

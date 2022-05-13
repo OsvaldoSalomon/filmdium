@@ -20,10 +20,9 @@ block content
             form(action=`/likes` method='post')
                 input(type="hidden" name="_csrf" value=csrfToken)
                 input(type="hidden" name='storyId' id="storyId" value=storyId)
-                label Likes:
-                p(class="likes-number" value=likes.length)= likes
-        div
-        button(type="submit" class="like-button") Like this story
+                div(id="likes-number" value=likes.length)= likes
+                label(id="likes-label") Likes
+                button(type="submit" class="like-button") Like this post
         hr
         h1(class='comment-heading') Comments
         form(action=`/comments` method='post')
@@ -39,10 +38,10 @@ block content
                 p(id=`comments-author-${comment.id}`)=comment.User.fullName
                 hr
                 p(type='submit' id=`comments-content-${comment.id}`)=comment.content
-                if loggedInUserId === comment.User.id 
+                if loggedInUserId === comment.User.id
                     button(class="editButton" id=`edit-comment-${comment.id}`) Edit
                     button(class="deleteButton" id=`delete-comment-${comment.id}`) Delete
-                    form(class='hidden' id=`edit-form-${comment.id}`) 
+                    form(class='hidden' id=`edit-form-${comment.id}`)
                         input(type="hidden" name="title" value=comment.User.fullName id=`${comment.id}-edit-title`)
-                        input(type="text" name="content" value=comment.content id=`${comment.id}-edit-content`) 
+                        input(type="text" name="content" value=comment.content id=`${comment.id}-edit-content`)
                         button(type='submit' class="edit-submit" id=`edit-submit-${comment.id}`) Submit Edit
