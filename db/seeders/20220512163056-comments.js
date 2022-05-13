@@ -65,6 +65,76 @@ module.exports = {
         storyId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        content: 'Appealing work you have here.',
+        userId: 11,
+        storyId: 6,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: 'Just exquisite!',
+        userId: 12,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: `I think I'm crying. It's that nice.`,
+        userId: 13,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: 'Outstandingly simple illustration.',
+        userId: 14,
+        storyId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: 'This is appealing work, friend.',
+        userId: 15,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: 'So fabulous and neat!!',
+        userId: 16,
+        storyId: 8,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: 'Really thought out! Yes yes yes yes yes yes.',
+        userId: 17,
+        storyId: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: 'Nice work you have here.',
+        userId: 18,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: 'This review has navigated straight to my heart',
+        userId: 19,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        content: 'Whoa.',
+        userId: 20,
+        storyId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
 
