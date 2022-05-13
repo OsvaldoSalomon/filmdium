@@ -1,0 +1,48 @@
+body {
+    background-color: #F8F9FA;
+}
+
+.title {
+    font-size: 10em;
+    display:flex;
+    justify-content: center;
+}
+
+.content {
+    font-size: 1.5em;
+    display:flex;
+    justify-content: center;
+}
+
+.confirmation {
+    font-size: 1.5em;
+    display:flex;
+    justify-content: center;
+}
+
+.cancel-button {
+    text-decoration: none;
+    background-color: #9095A1;
+    border: #9095A1;
+    color: white;
+    padding: .3em 3em .3em 3em;
+    border-radius: .5em;
+    margin-right: 1em;
+}
+
+.delete-button {
+    text-decoration: none;
+    background-color:rgb(215, 20, 20);
+    border: rgb(215, 20, 20);
+    color: white;
+    padding: .5em 3em .5em 3em;
+    border-radius: .5em;
+    font-family: Montserrat;
+    margin-left: 1em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+}
