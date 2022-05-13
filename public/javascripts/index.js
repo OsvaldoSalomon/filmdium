@@ -2,7 +2,7 @@ window.addEventListener("load", (event) => {
 
     //   DELETE COMMENTS BUTTONS
 
-    const deleteButtons = document.querySelectorAll('.deleteButton')
+    const deleteButtons = document.querySelectorAll('.delete-btn')
     for (let i = 0; i < deleteButtons.length; i++) {
         const delButton = deleteButtons[i];
         delButton.addEventListener('click', async (e) => {
@@ -20,7 +20,7 @@ window.addEventListener("load", (event) => {
     }
 
     // EDIT COMMENT BUTTONS
-    const editBtns = document.querySelectorAll('.editButton')
+    const editBtns = document.querySelectorAll('.edit-btn')
     for (let i = 0; i < editBtns.length; i++) {
         const btn = editBtns[i];
         btn.addEventListener('click', (e) => {
@@ -64,7 +64,6 @@ window.addEventListener("load", (event) => {
 //  LIKE BUTTON
 
 const likeButton = document.querySelectorAll(".like-button")
-
 for (let i = 0; i < likeButton.length; i++) {
     const like = likeButton[i];
     like.addEventListener("click", async (e) => {
