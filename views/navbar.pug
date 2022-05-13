@@ -17,7 +17,10 @@ html
                     a(href="/stories")
                         i.fa.fa-book
                 div(class='bottom-sidenav')
-                    i.fa.fa-user-circle-o
+                    form(action='/users/logout' method='post')
+                        button(class='sign-out-btn' type='submit')
+                            i.fa.fa-sign-out
+
             block content
 
 
