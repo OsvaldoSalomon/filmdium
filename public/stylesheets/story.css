@@ -131,9 +131,10 @@ label {
 
 .like-button {
     float: right;
+    margin-right: 1em;
 }
 
 #likes-number,
 #likes-label {
-    padding-right: 10px;
+    padding-right: 4px;
 }

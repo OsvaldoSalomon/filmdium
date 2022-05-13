@@ -100,11 +100,14 @@ for (let i = 0; i < likeButton.length; i++) {
         })
         const data = await res.json()
         const likesNum = document.querySelector("#likes-number")
+        const icon = document.querySelector("#like-icon-button")
+
         if (data.message === "CreatedLike") {
             likesNum.innerHTML = data.likesCount + 1
+            icon.name = "happy-outline"
         } else {
             likesNum.innerHTML = data.likesCount - 1
-
+            icon.name = "heart-dislike-outline"
         }
     })
 }

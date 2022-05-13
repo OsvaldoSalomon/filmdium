@@ -22,7 +22,8 @@ block content
                 input(type="hidden" name='storyId' id="storyId" value=storyId)
                 div(id="likes-number" value=likes.length)= likes
                 label(id="likes-label") Likes
-                button(type="submit" class="like-button") Like this post
+                button(type="submit" class="like-button")
+                    ion-icon(id="like-icon-button" name="thumbs-up-outline")
         hr
         h1(class='comment-heading') Comments
         form(action=`/comments` method='post')
@@ -45,3 +46,4 @@ block content
                         input(type="hidden" name="title" value=comment.User.fullName id=`${comment.id}-edit-title`)
                         input(type="text" name="content" value=comment.content id=`${comment.id}-edit-content`)
                         button(type='submit' class="edit-submit" id=`edit-submit-${comment.id}`) Submit Edit
+    script(src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module")
