@@ -7,13 +7,18 @@ const router = express.Router();
 
 
 router.get("/", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
     const stories = await db.Story.findAll({
         include: {
             model: db.User,
             as: 'author'
         }
     });
-    res.render("stories", { stories })
+    if (userId) {
+        res.render("stories", { stories })
+    } else {
+        res.redirect("/users/log-in")
+    }
 }));
 
 
