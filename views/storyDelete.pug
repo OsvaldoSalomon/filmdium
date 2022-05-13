@@ -1,12 +1,18 @@
 extends layout.pug
 
+append head
+    link(rel="stylesheet" href="/stylesheets/storyDelete.css")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet")
+
+
 block content
-  h3= story.title
-  p= story.content
+  h3(class='title')= story.title
+  p(class="content")= story.content
   div(class='py-4')
-    p Proceed with deleting this story?
+    p(class="confirmation") Proceed with deleting this story?
   div
     form(action=`/stories/${story.id}/delete` method='post')
       input(type='hidden' name='_csrf' value=csrfToken)
-      button(type='submit') Delete Story
-      a(href=`/stories/${story.id}` role='button') Cancel
+      div(class="buttons")
+        a(href=`/stories/${story.id}` role='button' class="cancel-button") Cancel
+        button(type='submit' class="delete-button") Delete Story
