@@ -1,9 +1,74 @@
 body {
+    font: 14px 'Montserrat', sans-serif;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+li, a {
+    list-style: none;
+    text-decoration: none;
+}
+
+.top-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1em;
+    font-size: 15px;
+    margin-right: 2em;
+}
+
+.nav-links li {
+    padding: 5px 14px;
+}
+
+#sign-in-btn {
+    color: white;
+}
+
+#sign-in-btn:hover {
+    color: white;
+    padding: .2em .2em;
+    border-radius: .5em;
+    transition: 0.3s ease;
+}
+
+#sign-up-btn {
+    color: white;
+    background-color: #1E64DD;
+    border-radius: .5em;
+    padding: .4em .7em;
+}
+
+#sign-up-btn:hover {
+    color: white;
+    background-color: #1f1f1f;
+    border-radius: .5em;
+    padding: .5em .8em;
+    transition: 0.3s ease;
+}
+
+body {
     background-color: #404654;
 }
 
+.register-container {
+    height: 100%;
+    width: 100%;
+}
+
 .header {
-    position: relative;
+    position: absolute;
     padding-left: 2em;
     padding-top: 1.5em;
     font-weight: bolder;
@@ -12,15 +77,16 @@ body {
 
 .main-img {
     position: absolute;
-    /* height: 100%; */
+    margin-left: -1em;
+    margin-top: -1em;
 }
 
 
 .form-box {
     background-color: white;
     box-shadow: 0 0 5px #9095A1;
-    height: 38em;
-    width: 40em;
+    height: 45em;
+    width: 45em;
     position: absolute;
     background-color: white;
     top: 30%;
@@ -105,4 +171,11 @@ input {
     display: inline-block;
     justify-content: right;
     color: #1E64DD;
+}
+
+.top-heading {
+    position: absolute;
+    width: 112em;
+    display: flex;
+    justify-content: flex-end;
 }
