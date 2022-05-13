@@ -76,7 +76,8 @@ input::placeholder {
     border: none;
     width: 18em;
     margin: 0 auto 2em 6.5em;
-    font-size: 18px
+    font-size: 18px;
+    margin-top: .6em
 }
 
 .account {

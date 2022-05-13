@@ -9,6 +9,10 @@ p {
     text-overflow: ellipsis;
 }
 
+.stories-section {
+    margin-left: 5em;
+}
+
 .story {
     display: flex;
     box-shadow: 0 0 5px #9095A1;
