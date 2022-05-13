@@ -104,10 +104,10 @@ for (let i = 0; i < likeButton.length; i++) {
 
         if (data.message === "CreatedLike") {
             likesNum.innerHTML = data.likesCount + 1
-            icon.name = "happy-outline"
+            icon.name = "happy"
         } else {
             likesNum.innerHTML = data.likesCount - 1
-            icon.name = "heart-dislike-outline"
+            icon.name = "heart-dislike"
         }
     })
 }

@@ -132,6 +132,7 @@ label {
 .like-button {
     float: right;
     margin-right: 1em;
+    height: 25px;
 }
 
 #likes-number,
