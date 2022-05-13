@@ -11,8 +11,9 @@ block content
                 h3(class='date')=story.createdAt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
             h1=story.title
             div(class='buttons')
-                a(class='button' id='edit-btn' href=`/stories/${story.id}/edit`) Edit
-                a(class='button' id='delete-btn' href=`/stories/${story.id}/delete`) Delete
+                if loggedInUserId === story.userId
+                    a(class='button' id='edit-btn' href=`/stories/${story.id}/edit`) Edit
+                    a(class='button' id='delete-btn' href=`/stories/${story.id}/delete`) Delete
         div(class='img-container')
             img(src=`${story.imgUrl}` class='img')
         p=story.content
