@@ -6,7 +6,8 @@ body {
     background-color: white;
     border-radius: .5em;
     margin-right: 4em;
-    margin-left: 4em;
+    margin-top: 1em;
+    margin-left: 7em;
     box-shadow: 0 0 5px #9095A1;
     padding: 2em 8em;
 }
@@ -83,13 +84,49 @@ body {
     background-color: #d10000;
 }
 
-input,
-label {
+.edit-btn {
+    margin-right: 2em;
+    margin-top: .1em;
+    border: 1px solid #008cff;
+    color: #008cff;
+    background-color: transparent;
+}
+
+.edit-btn:hover {
+    color: white;
+    background-color: #008cff;
+}
+
+.delete-btn {
+    margin-right: 2em;
+    margin-top: .1em;
+    border: 1px solid #d10000;
+    color: #d10000;
+    background-color: transparent;
+}
+
+.delete-btn:hover {
+    color: white;
+    background-color: #d10000;
+}
+
+input {
+    padding: 10px;
+    border: 0;
+    border-radius: .5em;
+    box-shadow: 0 0 5px #9095A1;
+}
+
+input, label {
     display: block;
 }
 
 .comment-heading {
     margin-bottom: .5em;
+}
+
+.comment-date {
+    color: #9095A1;
 }
 
 .comment {
@@ -99,28 +136,21 @@ label {
     background-color: white;
     border-radius: .5em;
     box-shadow: 0 0 3px #9095A1;
-    padding: .5em;
-}
-
-#cancel-btn {
-    border: 1px solid #d10000;
-    color: #d10000;
-    background-color: transparent;
-}
-
-#cancel-btn:hover {
-    color: white;
-    background-color: #d10000;
+    padding: .5em 1em;
 }
 
 #create-btn:hover {
     color: white;
+    border-radius: .5em;
     background-color: #008cff;
 }
 
 #create-btn {
     border: 1px solid #008cff;
+    border-radius: .5em;
     color: #008cff;
+    margin-top: .3em;
+    padding: .3em .5em;
     background-color: transparent;
 }
 
