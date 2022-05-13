@@ -26,3 +26,31 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.error-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20em;
+}
+
+.register {
+  color: white;
+  background-color: #1f1f1f;
+  border-radius: .5em;
+  padding: .4em .7em;
+}
+
+.login {
+  color: white;
+  background-color: #FFBB00;
+  border-radius: .5em;
+  padding: .4em .7em;
+  text-decoration: none;
+}
