@@ -15,8 +15,7 @@ html
                 form(action='/users/logout' method='post')
                     button(type='submit') Logout
             else
-                span()
-                    div
-                        a(href='/users/log-in') Login
-                        a(href='/users/register') Register
+                div(class='buttons')
+                    a(class='login' href='/users/log-in') Login
+                    a(class='register' href='/users/register') Register
         block content
