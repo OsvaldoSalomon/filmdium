@@ -1,0 +1,88 @@
+body {
+    /*padding: 50px;*/
+    font: 14px 'Montserrat', sans-serif;
+    /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+}
+
+.sidenav {
+    display: block;
+    height: 100%;
+    width: 4em;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+    box-shadow: 0 0 3px #9095A1;
+}
+
+.top-sidenav {
+
+}
+
+.middle-sidenav {
+    position: absolute;
+    left: 1em;
+    bottom: 19em;
+}
+
+.logo-sidenav i {
+    padding: 6px 6px 4em 6px;
+    text-decoration: none;
+    display: block;
+    color: black;
+    text-align: center;
+}
+
+.middle-sidenav a {
+    padding: 6px 6px 4em 6px;
+    text-decoration: none;
+    display: block;
+    color: #404654;
+    text-align: center;
+}
+
+.bottom-sidenav i {
+    padding: 6px 6px 4em 6px;
+    text-decoration: none;
+    display: block;
+    color: black;
+    text-align: center;
+    float: bottom;
+    position: absolute;
+    left: 1em;
+    bottom: 0;
+}
+
+.middle-sidenav a:hover {
+    color: black;
+}
+
+.bottom-sidenav i:hover {
+    color: black;
+}
+
+a {
+    color: #00B7FF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
+body, header, nav {
+    font-size: 1rem;
+    color: inherit;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2rem;
+}
