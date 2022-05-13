@@ -19,6 +19,7 @@ router.get("/", asyncHandler(async (req, res) => {
 
 router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
     let loggedInUserId
+    const storyId = req.params.id
     const story = await db.Story.findByPk(req.params.id, {
         include: [{
             model: db.User,
@@ -35,7 +36,10 @@ router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
     if (req.session.auth) {
         loggedInUserId = req.session.auth.userId
     }
-    let likes = await db.Like.count()
+    let allLikes = await db.Like.findAll({
+        where: { storyId }
+    })
+    let likes = allLikes.length
     const storyId = req.params.id
     const like = await db.Like.findOne({
         where: {

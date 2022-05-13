@@ -7,7 +7,10 @@ const router = express.Router();
 router.post("/", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const { storyId } = req.body;
-    const likesCount = await db.Like.count()
+    let allLikes = await db.Like.findAll({
+        where: { storyId }
+    })
+    let likesCount = allLikes.length
     const like = await db.Like.findOne({
         where: {
             storyId,
