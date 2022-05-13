@@ -11,12 +11,14 @@ html
         div(class='navbar')
             div(class='nav-title')
                 h1 Filmdium
-            //div(class='nav-links')
-            ul(class='nav-links')
-                li
-                    a(id='sign-in-btn' href='/users/log-in') Sign In
-                li
-                    a(id='sign-up-btn' href='/users/register') Sign Up
+            if locals.authenticated
+                span(class='user-name') Welcome #{user.fullName}!
+            else
+                ul(class='nav-links')
+                    li
+                        a(id='sign-in-btn' href='/users/log-in') Sign In
+                    li
+                        a(id='sign-up-btn' href='/users/register') Sign Up
         div(class='main-page')
             div(class='section1')
                 h1(id='heading') Stay curious.

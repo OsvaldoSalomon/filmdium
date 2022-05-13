@@ -4,6 +4,16 @@ body {
     /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
 
+.sign-out-btn {
+    border: none;
+    color: white;
+    display: block;
+    float: bottom;
+    position: absolute;
+    left: .5em;
+    bottom: 0;
+}
+
 .sidenav {
     display: block;
     height: 100%;
@@ -16,10 +26,6 @@ body {
     overflow-x: hidden;
     padding-top: 20px;
     box-shadow: 0 0 3px #9095A1;
-}
-
-.top-sidenav {
-
 }
 
 .middle-sidenav {
@@ -48,7 +54,7 @@ body {
     padding: 6px 6px 4em 6px;
     text-decoration: none;
     display: block;
-    color: black;
+    color: red;
     text-align: center;
     float: bottom;
     position: absolute;
