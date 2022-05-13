@@ -1,4 +1,4 @@
-extends layout.pug
+extends navbar.pug
 
 append head
     link(rel="stylesheet" href="/stylesheets/story.css")
@@ -12,8 +12,8 @@ block content
             h1=story.title
             div(class='buttons')
                 if loggedInUserId === story.userId
-                    a(class='button' id='edit-btn' href=`/stories/${story.id}/edit`) Edit
-                    a(class='button' id='delete-btn' href=`/stories/${story.id}/delete`) Delete
+                    a(class='button edit-button' id='edit-btn' href=`/stories/${story.id}/edit`) Edit
+                    a(class='button delete-button' id='delete-btn' href=`/stories/${story.id}/delete`) Delete
         div(class='img-container')
             img(src=`${story.imgUrl}` class='img')
         p=story.content
@@ -21,28 +21,29 @@ block content
             form(action=`/likes` method='post')
                 input(type="hidden" name="_csrf" value=csrfToken)
                 input(type="hidden" name='storyId' id="storyId" value=storyId)
+                button(type="submit" class="like-button")
+                    if (!like)
+                        ion-icon(id="like-icon-button" name="heart-outline")
+                    if like
+                        ion-icon(id="like-icon-button" name="heart")
                 div(id="likes-number" value=likes)= likes
                 label(id="likes-label") Likes
-                button(type="submit" class="like-button")
-                    ion-icon(id="like-icon-button" name="thumbs-up-outline")
         hr
         h1(class='comment-heading') Comments
         form(action=`/comments` method='post')
             input(type="hidden" name="_csrf" value=csrfToken)
             input(type="hidden" name='storyId' value=storyId)
-            label(for='contentInput') Add a comment
             input(type="text" id='contentInput' name='content' placeholder='Add a Comment..')
-            button(button='reset' id='cancel-btn') Cancel
             button(class='submit' id='create-btn' type='submit') Create
         each comment in story.Comments
             div(class='comment' id=`comments-container-${comment.id}`)
-                p=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                p(class='comment-date')=comment.createdAt.toLocaleDateString('en-US', { hour: '2-digit', minute:'2-digit', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
                 p(id=`comments-author-${comment.id}`)=comment.User.fullName
                 hr
                 p(type='submit' id=`comments-content-${comment.id}`)=comment.content
                 if loggedInUserId === comment.User.id
-                    button(class="editButton" id=`edit-comment-${comment.id}`) Edit
-                    button(class="deleteButton" id=`delete-comment-${comment.id}`) Delete
+                    button(class="button edit-btn" id=`edit-comment-${comment.id}`) Edit
+                    button(class="button delete-btn" id=`delete-comment-${comment.id}`) Delete
                     div(class=`error-div-${comment.id}`)
                     form(class='hidden' id=`edit-form-${comment.id}`)
                         input(type="hidden" name="title" value=comment.User.fullName id=`${comment.id}-edit-title`)

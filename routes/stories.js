@@ -40,7 +40,14 @@ router.get("/:id(\\d+)", csrfProtection, asyncHandler(async (req, res) => {
         where: { storyId }
     })
     let likes = allLikes.length
-    res.render("story", { story, storyId, likes, loggedInUserId, csrfToken: req.csrfToken() })
+    const storyId = req.params.id
+    const like = await db.Like.findOne({
+        where: {
+            storyId,
+            userId: loggedInUserId
+        }
+    })
+    res.render("story", { story, storyId, like, likes, loggedInUserId, csrfToken: req.csrfToken() })
 }))
 
 
