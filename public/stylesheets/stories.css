@@ -32,8 +32,9 @@ p {
 }
 
 .story-body-img {
-    width: 50%;
+    width: 100%;
     resize: none;
+    float: right;
 }
 
 .story-title a {
