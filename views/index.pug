@@ -85,4 +85,7 @@ html
                         p(class='card-title') Oblivion
                         p(class='card-date') May 13, 2022
             div(id='see-more')
-                a(id='see-more-link' href='/stories') See more articles
+                if locals.authenticated
+                    a(id='see-more-link' href='/stories') See more articles
+                else
+                    a(id='see-more-link' href='/users/log-in') See more articles
