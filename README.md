@@ -14,9 +14,10 @@ Filmdium is an open platform where film lovers find dynamic thinking, and where 
 - sequelize
 - HTML
 - CSS
+- Heroku
 
 ## Link to Live Site
-- Coming Soon
+- https://filmdium.herokuapp.com/
 
 ## Link to Wiki docs
 - https://github.com/OsvaldoSalomon/filmdium/wiki
@@ -26,4 +27,3 @@ Filmdium is an open platform where film lovers find dynamic thinking, and where 
 ## Discussion of both challenges faced and the way the team solved them
 
 ## Code snippets to highlight the best code
-
