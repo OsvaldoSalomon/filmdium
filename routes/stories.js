@@ -125,8 +125,27 @@ router.get('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) =>
 }))
 
 router.post('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {
+    console.log("Hit DELETE")
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
+
+    const allComments = await db.Comment.findAll({
+        where: { storyId }
+    })
+
+    const allLikes = await db.Like.findAll({
+        where: { storyId }
+    })
+
+    for(comment of allComments) {
+        await comment.destroy();
+    }
+
+    for(likes of allLikes) {
+        await likes.destroy();
+    }
+    // await allComments.destroy();
+    // console.log(allComments)
     await story.destroy();
     res.redirect('/stories');
 }))
