@@ -1,5 +1,7 @@
 body {
     background-color: #F8F9FA;
+    margin-right: 3em;
+    margin-left: 7em;
 }
 
 .title {
@@ -46,3 +48,5 @@ body {
     justify-content: center;
     margin-top: 3em;
 }
+
+

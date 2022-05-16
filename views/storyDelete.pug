@@ -1,4 +1,4 @@
-extends layout.pug
+extends navbar.pug
 
 append head
     link(rel="stylesheet" href="/stylesheets/storyDelete.css")
@@ -6,13 +6,14 @@ append head
 
 
 block content
-  h3(class='title')= story.title
-  p(class="content")= story.content
-  div(class='py-4')
-    p(class="confirmation") Proceed with deleting this story?
-  div
-    form(action=`/stories/${story.id}/delete` method='post')
-      input(type='hidden' name='_csrf' value=csrfToken)
-      div(class="buttons")
-        a(href=`/stories/${story.id}` role='button' class="cancel-button") Cancel
-        button(type='submit' class="delete-button") Delete Story
+  div(class='delete-story-body')
+    h3(class='title')= story.title
+    p(class="content")= story.content
+    div(class='py-4')
+      p(class="confirmation") Proceed with deleting this story?
+    div
+      form(action=`/stories/${story.id}/delete` method='post')
+        input(type='hidden' name='_csrf' value=csrfToken)
+        div(class="buttons")
+          a(href=`/stories/${story.id}` role='button' class="cancel-button") Cancel
+          button(type='submit' class="delete-button") Delete Story
