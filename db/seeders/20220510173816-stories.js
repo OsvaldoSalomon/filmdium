@@ -1,9 +1,14 @@
 'use strict';
 
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA;  // define your schema in options object
+}
+
 module.exports = {
     up: (queryInterface, Sequelize) => {
-
-        return queryInterface.bulkInsert('Stories', [
+        options.tableName = 'Stories'
+        return queryInterface.bulkInsert(options, [
             {
                 title: 'How to Watch a Movie Like a Film Critic',
                 content: 'Advice from the pros on what to look for — Awards season can feel like showing up for the first day of school without ' +
@@ -123,6 +128,7 @@ module.exports = {
     },
 
     down: (queryInterface, Sequelize) => {
-        return queryInterface.bulkDelete('Stories', null, {});
+        options.tableName = 'Stories'
+        return queryInterface.bulkDelete(options);
     }
 };
